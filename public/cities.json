@@ -1,0 +1,13 @@
+[
+  { "city": "Delhi", "code": "DEL", "country": "IN" },
+  { "city": "Mumbai", "code": "BOM", "country": "IN" },
+  { "city": "Bangalore", "code": "BLR", "country": "IN" },
+  { "city": "Goa", "code": "GOI", "country": "IN" },
+
+  { "city": "Paris", "code": "CDG", "country": "FR" },
+  { "city": "London", "code": "LHR", "country": "GB" },
+  { "city": "Dubai", "code": "DXB", "country": "AE" },
+  { "city": "New York", "code": "JFK", "country": "US" },
+  { "city": "Singapore", "code": "SIN", "country": "SG" },
+  { "city": "Tokyo", "code": "HND", "country": "JP" }
+]
