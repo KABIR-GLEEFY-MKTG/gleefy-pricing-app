@@ -18,11 +18,14 @@ body { background: #0B0B0B; color: #E7E1D7; font-family: 'Montserrat', sans-seri
 h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-weight: 600; letter-spacing: 0.02em; text-align: center; padding: 36px 0 4px; }
 .tagline { text-align: center; font-size: 11px; color: #6B6560; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 30px; }
 .wrap { max-width: 700px; margin: 0 auto; padding: 0 18px; }
-.toggle-row { display: flex; justify-content: center; margin-bottom: 20px; }
-.toggle-btn { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 8px 26px; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; }
+.toggle-row { display: flex; justify-content: center; margin-bottom: 16px; gap: 0; }
+.toggle-btn { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 8px 22px; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; }
 .toggle-btn:first-child { border-radius: 6px 0 0 6px; }
 .toggle-btn:last-child { border-radius: 0 6px 6px 0; }
 .toggle-btn.active { background: #CBB38E; color: #000; }
+.options-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.option-btn { background: transparent; color: #6B6560; border: 1px solid #2A2A2A; padding: 6px 16px; font-size: 11px; font-weight: 600; cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; border-radius: 20px; transition: all 0.18s; }
+.option-btn.active { border-color: #CBB38E; color: #CBB38E; }
 .search-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; margin-bottom: 12px; display: flex; align-items: stretch; position: relative; overflow: visible; }
 .field-wrap { flex: 1; position: relative; }
 .field-inner { display: flex; flex-direction: column; padding: 12px 16px; border-right: 0.5px solid #2A2A2A; height: 100%; }
@@ -36,15 +39,17 @@ h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-we
 .dd-country { color: #6B6560; font-size: 12px; margin-left: 6px; }
 .dd-code { color: #CBB38E; font-size: 13px; font-weight: 600; }
 .swap-btn { background: transparent; border: none; border-right: 0.5px solid #2A2A2A; color: #CBB38E; font-size: 20px; cursor: pointer; padding: 0 14px; flex-shrink: 0; }
-.date-wrap { border-left: 0.5px solid #2A2A2A; padding: 12px 16px; flex-shrink: 0; display: flex; flex-direction: column; }
+.date-wrap { border-left: 0.5px solid #2A2A2A; padding: 12px 16px; flex-shrink: 0; display: flex; flex-direction: column; min-width: 130px; }
 input[type="date"] { background: transparent; border: none; outline: none; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; color-scheme: dark; cursor: pointer; margin-top: 4px; }
-.bottom-row { display: flex; gap: 10px; margin-bottom: 28px; }
+.bottom-row { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
 .pax-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; display: flex; align-items: center; padding: 0 14px; gap: 10px; flex-shrink: 0; }
 .pax-btn { background: none; border: none; color: #CBB38E; font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; font-family: 'Montserrat', sans-serif; }
 .pax-num { color: #E7E1D7; font-size: 16px; font-weight: 500; min-width: 18px; text-align: center; }
 .search-btn { flex: 1; background: #CBB38E; color: #000; border: none; border-radius: 10px; padding: 16px 0; font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
 .search-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .err-box { background: #2A1010; border: 0.5px solid #5A2020; border-radius: 8px; padding: 12px 16px; color: #E07070; font-size: 13px; margin-bottom: 18px; }
+.results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.route-label { font-size: 15px; font-weight: 500; }
 .flight-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
 .flight-card.best { border-color: #CBB38E; }
 .flight-main { padding: 18px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px; }
@@ -77,18 +82,29 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .skel-line { background: #222; border-radius: 4px; animation: pulse 1.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
 .disclaimer { text-align: center; margin-top: 24px; font-size: 11px; color: #3A3530; }
-.results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.route-label { font-size: 15px; font-weight: 500; }
+.return-card { display: none; }
+.return-card.show { display: flex; }
 </style>
 </head>
 <body>
 <h1>Gleefy</h1>
 <p class="tagline">Luxury Travel Rates</p>
 <div class="wrap">
+
   <div class="toggle-row">
     <button class="toggle-btn active" id="domBtn" onclick="setMode('domestic')">Domestic</button>
     <button class="toggle-btn" id="intlBtn" onclick="setMode('international')">International</button>
   </div>
+
+  <div class="options-row">
+    <button class="option-btn active" id="oneWayBtn" onclick="setTrip('oneway')">One Way</button>
+    <button class="option-btn" id="roundBtn" onclick="setTrip('round')">Round Trip</button>
+    <button class="option-btn active" id="econBtn" onclick="setCabin('economy')">Economy</button>
+    <button class="option-btn" id="premEconBtn" onclick="setCabin('premium_economy')">Premium Economy</button>
+    <button class="option-btn" id="bizBtn" onclick="setCabin('business')">Business</button>
+    <button class="option-btn" id="firstBtn" onclick="setCabin('first')">First Class</button>
+  </div>
+
   <div class="search-card">
     <div class="field-wrap">
       <div class="field-inner">
@@ -106,10 +122,18 @@ input[type="date"] { background: transparent; border: none; outline: none; color
       <div class="dropdown" id="destDD" style="display:none"></div>
     </div>
     <div class="date-wrap">
-      <div class="field-label">Date</div>
+      <div class="field-label">Depart</div>
       <input type="date" id="dateInput">
     </div>
   </div>
+
+  <div class="search-card return-card" id="returnCard">
+    <div class="field-inner" style="flex:1">
+      <div class="field-label">Return Date</div>
+      <input type="date" id="returnDateInput" style="background:transparent;border:none;outline:none;color:#E7E1D7;font-size:15px;font-family:Montserrat,sans-serif;color-scheme:dark;cursor:pointer;margin-top:4px;">
+    </div>
+  </div>
+
   <div class="bottom-row">
     <div class="pax-card">
       <span class="field-label" style="white-space:nowrap">Passengers</span>
@@ -119,6 +143,7 @@ input[type="date"] { background: transparent; border: none; outline: none; color
     </div>
     <button class="search-btn" id="searchBtn" onclick="doSearch()">Search Flights</button>
   </div>
+
   <div id="errBox" class="err-box" style="display:none"></div>
   <div id="loading" style="display:none">
     <div class="skel"><div class="skel-line" style="height:14px;width:130px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:220px"></div></div>
@@ -127,6 +152,7 @@ input[type="date"] { background: transparent; border: none; outline: none; color
   </div>
   <div id="results"></div>
 </div>
+
 <script>
 const cities = [
   {city:"Delhi",code:"DEL",country:"India",type:"both"},
@@ -150,12 +176,18 @@ const cities = [
   {city:"Frankfurt",code:"FRA",country:"Germany",type:"international"},
   {city:"Toronto",code:"YYZ",country:"Canada",type:"international"},
 ];
+
 let mode = 'domestic';
+let tripType = 'oneway';
+let cabinClass = 'economy';
 let originCode = '', destCode = '';
 let pax = 1;
+
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('dateInput').min = today;
 document.getElementById('dateInput').value = today;
+document.getElementById('returnDateInput').min = today;
+
 function setMode(m) {
   mode = m;
   originCode = ''; destCode = '';
@@ -165,6 +197,23 @@ function setMode(m) {
   document.getElementById('intlBtn').classList.toggle('active', m==='international');
   document.getElementById('results').innerHTML = '';
 }
+
+function setTrip(t) {
+  tripType = t;
+  document.getElementById('oneWayBtn').classList.toggle('active', t==='oneway');
+  document.getElementById('roundBtn').classList.toggle('active', t==='round');
+  const rc = document.getElementById('returnCard');
+  if (t === 'round') { rc.classList.add('show'); } else { rc.classList.remove('show'); }
+}
+
+function setCabin(c) {
+  cabinClass = c;
+  document.getElementById('econBtn').classList.toggle('active', c==='economy');
+  document.getElementById('premEconBtn').classList.toggle('active', c==='premium_economy');
+  document.getElementById('bizBtn').classList.toggle('active', c==='business');
+  document.getElementById('firstBtn').classList.toggle('active', c==='first');
+}
+
 function filterCities(field) {
   const inputEl = document.getElementById(field==='origin' ? 'originInput' : 'destInput');
   const ddEl = document.getElementById(field==='origin' ? 'originDD' : 'destDD');
@@ -181,6 +230,7 @@ function filterCities(field) {
   ).join('');
   ddEl.style.display = 'block';
 }
+
 function selectCity(field, code, city) {
   if (field === 'origin') {
     originCode = code;
@@ -192,9 +242,11 @@ function selectCity(field, code, city) {
     hideDD('dest');
   }
 }
+
 function hideDD(field) {
   document.getElementById(field==='origin' ? 'originDD' : 'destDD').style.display = 'none';
 }
+
 function swapCities() {
   const oVal = document.getElementById('originInput').value;
   const dVal = document.getElementById('destInput').value;
@@ -202,15 +254,19 @@ function swapCities() {
   document.getElementById('destInput').value = oVal;
   const tmp = originCode; originCode = destCode; destCode = tmp;
 }
+
 function changePax(d) {
   pax = Math.max(1, Math.min(9, pax + d));
   document.getElementById('paxNum').textContent = pax;
 }
+
 function showErr(msg) {
   const b = document.getElementById('errBox');
   b.textContent = msg; b.style.display = 'block';
 }
+
 function hideErr() { document.getElementById('errBox').style.display = 'none'; }
+
 async function doSearch() {
   hideErr();
   if (!originCode) { showErr('Please select a departure city.'); return; }
@@ -218,24 +274,38 @@ async function doSearch() {
   if (originCode === destCode) { showErr('Origin and destination cannot be the same.'); return; }
   const date = document.getElementById('dateInput').value;
   if (!date) { showErr('Please select a travel date.'); return; }
+  const returnDate = document.getElementById('returnDateInput').value;
+  if (tripType === 'round' && !returnDate) { showErr('Please select a return date.'); return; }
+
   const btn = document.getElementById('searchBtn');
   btn.disabled = true; btn.textContent = 'Searching...';
   document.getElementById('loading').style.display = 'block';
   document.getElementById('results').innerHTML = '';
+
   const oCity = cities.find(c => c.code === originCode);
   const dCity = cities.find(c => c.code === destCode);
+
   try {
     const resp = await fetch('/search', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ origin: originCode, destination: destCode, date: date, pax: pax })
+      body: JSON.stringify({
+        origin: originCode,
+        destination: destCode,
+        date: date,
+        returnDate: returnDate,
+        pax: pax,
+        tripType: tripType,
+        cabinClass: cabinClass
+      })
     });
+
     const data = await resp.json();
     if (!data.flights || !data.flights.length) {
       showErr('No flights found. Please try a different route or date.');
       return;
     }
-    renderResults(data.flights, oCity, dCity, date);
+    renderResults(data.flights, oCity, dCity, date, returnDate);
   } catch(e) {
     showErr('Could not fetch flights. Please try again.');
   } finally {
@@ -244,9 +314,13 @@ async function doSearch() {
     document.getElementById('loading').style.display = 'none';
   }
 }
-function renderResults(flights, oCity, dCity, date) {
+
+function renderResults(flights, oCity, dCity, date, returnDate) {
   const dateStr = new Date(date + 'T00:00:00').toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'});
-  let html = '<div class="results-header"><div><span class="route-label">' + oCity.city + ' to ' + dCity.city + '</span><span style="font-size:13px;color:#6B6560;margin-left:10px">' + dateStr + ' - ' + pax + ' passenger' + (pax>1?'s':'') + '</span></div><span style="font-size:13px;color:#6B6560">' + flights.length + ' options</span></div>';
+  const cabinLabel = cabinClass === 'economy' ? 'Economy' : cabinClass === 'premium_economy' ? 'Premium Economy' : cabinClass === 'business' ? 'Business' : 'First Class';
+  const tripLabel = tripType === 'round' ? 'Round Trip' : 'One Way';
+  let html = '<div class="results-header"><div><span class="route-label">' + oCity.city + ' to ' + dCity.city + '</span><span style="font-size:13px;color:#6B6560;margin-left:10px">' + dateStr + ' · ' + pax + ' pax · ' + cabinLabel + ' · ' + tripLabel + '</span></div><span style="font-size:13px;color:#6B6560">' + flights.length + ' options</span></div>';
+
   flights.forEach(function(f, i) {
     const total = (f.price + f.taxes) * pax;
     html += '<div class="flight-card' + (i===0?' best':'') + '" id="fc'+i+'">' +
@@ -258,7 +332,7 @@ function renderResults(flights, oCity, dCity, date) {
       '<div class="stops-row"><span class="stops-txt">' + f.stops + '</span>' + (f.refundable?'<span class="ref-badge">Refundable</span>':'') + '</div>' +
       '</div>' +
       '<div class="price-col"><div class="price-num">Rs.' + f.price.toLocaleString('en-IN') + '</div><div class="price-sub">per person</div></div>' +
-      '<div class="chevron" id="chev'+i+'">v</div>' +
+      '<div class="chevron" id="chev'+i+'">▾</div>' +
       '</div>' +
       '<div class="flight-detail" id="fd'+i+'" style="display:none">' +
       '<div class="detail-grid">' +
@@ -273,9 +347,11 @@ function renderResults(flights, oCity, dCity, date) {
       '<button class="book-btn">Book Now</button></div>' +
       '</div></div>';
   });
+
   html += '<p class="disclaimer">Prices are indicative estimates for reference only.</p>';
   document.getElementById('results').innerHTML = html;
 }
+
 function toggleCard(i) {
   const fd = document.getElementById('fd' + i);
   const ch = document.getElementById('chev' + i);
@@ -289,21 +365,48 @@ function toggleCard(i) {
 });
 
 app.post("/search", async (req, res) => {
-  const { origin, destination, date, pax } = req.body;
+  const { origin, destination, date, returnDate, pax, tripType, cabinClass } = req.body;
+
+  const cabinMap = {
+    economy: 1,
+    premium_economy: 2,
+    business: 3,
+    first: 4
+  };
+
+  const tripMap = {
+    oneway: 2,
+    round: 1
+  };
+
   try {
-    const url = "https://serpapi.com/search.json?engine=google_flights" +
+    let url = "https://serpapi.com/search.json?engine=google_flights" +
       "&departure_id=" + origin +
       "&arrival_id=" + destination +
       "&outbound_date=" + date +
       "&adults=" + pax +
-      "&currency=INR&hl=en&gl=in&type=2" +
+      "&currency=INR&hl=en&gl=in" +
+      "&type=" + (tripMap[tripType] || 2) +
+      "&travel_class=" + (cabinMap[cabinClass] || 1) +
       "&api_key=" + process.env.SERPAPI_KEY;
+
+    if (tripType === 'round' && returnDate) {
+      url += "&return_date=" + returnDate;
+    }
+
     const response = await fetch(url);
     const data = await response.json();
     const rawFlights = data.best_flights || data.other_flights || [];
+
     if (!rawFlights.length) {
       return res.status(500).json({ error: "No flights found" });
     }
+
+    const cabinLabel = {1:"Economy", 2:"Premium Economy", 3:"Business", 4:"First Class"};
+    const baggageMap = {1:"15kg check-in + 7kg cabin", 2:"20kg check-in + 10kg cabin", 3:"32kg check-in + 15kg cabin", 4:"40kg check-in + 18kg cabin"};
+    const seatMap = {1:"29 inches", 2:"34 inches", 3:"60 inches", 4:"78 inches"};
+    const cabinNum = cabinMap[cabinClass] || 1;
+
     const flights = rawFlights.slice(0, 4).map((item, i) => {
       const leg = item.flights && item.flights[0];
       const price = item.price || 0;
@@ -317,15 +420,17 @@ app.post("/search", async (req, res) => {
         price: price,
         taxes: Math.round(price * 0.2),
         aircraft: leg && leg.airplane ? leg.airplane : "Standard Aircraft",
-        cabinClass: "Economy",
-        baggage: "15kg check-in + 7kg cabin",
-        meal: i === 0 ? "Complimentary" : "Buy on board",
-        seatPitch: "29 inches",
-        wifi: i < 2 ? "Available" : "Not available",
-        refundable: false
+        cabinClass: cabinLabel[cabinNum],
+        baggage: baggageMap[cabinNum],
+        meal: cabinNum >= 2 ? "Complimentary" : i === 0 ? "Complimentary" : "Buy on board",
+        seatPitch: seatMap[cabinNum],
+        wifi: cabinNum >= 2 ? "Available" : i < 2 ? "Available" : "Not available",
+        refundable: cabinNum >= 3
       };
     });
+
     res.json({ flights });
+
   } catch (err) {
     console.error("Error:", err);
     res.status(500).json({ error: "Failed to fetch flights" });
