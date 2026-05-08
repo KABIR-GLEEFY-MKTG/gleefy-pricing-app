@@ -11,60 +11,63 @@ app.get("/", (req, res) => {
 });
 
 app.post("/search", async (req, res) => {
-  const { origin, destination, date, pax } = req.body;
+  const { origin, destination, date, pax, mode, oCity, dCity } = req.body;
+
+  const prompt = `You are a flight pricing engine for Gleefy, a premium Indian travel platform.
+
+Generate exactly 4 realistic flight options for this search:
+- Route: ${origin} (${oCity}) to ${destination} (${dCity})
+- Travel date: ${date}
+- Passengers: ${pax}
+- Flight type: ${mode}
+
+Return ONLY a valid JSON array with exactly 4 objects sorted by price ascending. No markdown, no explanation, no code fences.
+
+Each object must have these exact keys:
+{
+  "airline": "realistic airline name for this route",
+  "flightNo": "airline code + number e.g. AI 203",
+  "departure": "HH:MM 24h format",
+  "arrival": "HH:MM 24h format",
+  "duration": "Xh Ym format",
+  "stops": "Non-stop OR 1 stop via [city]",
+  "price": integer base fare in INR per person,
+  "taxes": integer taxes around 20 percent of price,
+  "aircraft": "manufacturer and model",
+  "cabinClass": "Economy",
+  "baggage": "Xkg check-in + Xkg cabin",
+  "meal": "Complimentary OR Buy on board",
+  "seatPitch": "XX inches",
+  "wifi": "Available OR Not available",
+  "refundable": true or false
+}`;
 
   try {
-    const url = `https://serpapi.com/search.json?engine=google_flights&departure_id=${origin}&arrival_id=${destination}&outbound_date=${date}&adults=${pax}&currency=INR&hl=en&gl=in&api_key=${process.env.SERPAPI_KEY}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    console.log("SerpAPI status:", data.search_metadata?.status);
-
-    const rawFlights = data.best_flights || data.other_flights || [];
-
-    if (!rawFlights.length) {
-      console.log("No flights returned from SerpAPI");
-      return res.status(500).json({ error: "No flights found" });
-    }
-
-    const flights = rawFlights.slice(0, 4).map((item, i) => {
-      const leg = item.flights?.[0];
-      const price = item.price || 0;
-      const taxes = Math.round(price * 0.2);
-
-      return {
-        airline: leg?.airline || "Unknown",
-        flightNo: leg?.flight_number || "N/A",
-        departure: leg?.departure_airport?.time?.split(" ")[1] || "00:00",
-        arrival: leg?.arrival_airport?.time?.split(" ")[1] || "00:00",
-        duration: formatDuration(item.total_duration || 0),
-        stops: item.flights?.length === 1 ? "Non-stop" : `${item.flights.length - 1} stop`,
-        price: price,
-        taxes: taxes,
-        aircraft: leg?.airplane || "Standard Aircraft",
-        cabinClass: leg?.travel_class || "Economy",
-        baggage: "15kg check-in + 7kg cabin",
-        meal: i === 0 ? "Complimentary" : "Buy on board",
-        seatPitch: "29 inches",
-        wifi: i < 2 ? "Available" : "Not available",
-        refundable: item.type === "Round trip" ? true : false
-      };
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        messages: [{ role: "user", content: prompt }]
+      })
     });
 
+    const data = await response.json();
+    const text = (data.content || []).map(b => b.text || "").join("");
+    const clean = text.replace(/```json|```/g, "").trim();
+    const flights = JSON.parse(clean);
     res.json({ flights });
 
   } catch (err) {
-    console.error("SerpAPI error:", err);
+    console.error("Error:", err);
     res.status(500).json({ error: "Failed to fetch flights" });
   }
 });
-
-function formatDuration(minutes) {
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
-  return `${h}h ${m}m`;
-}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log("Gleefy running on port " + PORT));
