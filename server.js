@@ -24,26 +24,23 @@ app.post("/search", async (req, res) => {
       "&gl=in" +
       "&api_key=" + process.env.SERPAPI_KEY;
 
-    console.log("Calling SerpAPI for:", origin, "->", destination, date);
+    console.log("Searching:", origin, "->", destination);
 
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log("SerpAPI status:", data.search_metadata?.status);
-    console.log("Best flights:", data.best_flights?.length || 0);
-    console.log("Other flights:", data.other_flights?.length || 0);
+    console.log("Status:", data.search_metadata?.status);
 
     const rawFlights = data.best_flights || data.other_flights || [];
 
     if (!rawFlights.length) {
-      return res.status(500).json({ error: "No flights found for this route" });
+      return res.status(500).json({ error: "No flights found" });
     }
 
     const flights = rawFlights.slice(0, 4).map((item, i) => {
       const leg = item.flights?.[0];
       const price = item.price || 0;
       const taxes = Math.round(price * 0.2);
-
       return {
         airline: leg?.airline || "Unknown",
         flightNo: leg?.flight_number || "N/A",
@@ -66,7 +63,7 @@ app.post("/search", async (req, res) => {
     res.json({ flights });
 
   } catch (err) {
-    console.error("SerpAPI error:", err);
+    console.error("Error:", err);
     res.status(500).json({ error: "Failed to fetch flights" });
   }
 });
