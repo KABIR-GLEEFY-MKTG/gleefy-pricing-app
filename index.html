@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gleefy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Bodoni+Moda:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #0B0B0B;
+      color: #E7E1D7;
+      font-family: 'Montserrat', sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Bodoni Moda';
+      color: #CBB38E;
+    }
+
+    .toggle {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .toggle button {
+      border: 1px solid #CBB38E;
+      background: none;
+      color: #CBB38E;
+      padding: 8px 15px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .active {
+      background: #CBB38E;
+      color: black;
+    }
+
+    .bar {
+      display: flex;
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .field {
+      flex: 1;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 12px;
+      outline: none;
+    }
+
+    .dropdown {
+      position: absolute;
+      background: #222;
+      width: 100%;
+      top: 40px;
+      z-index: 10;
+    }
+
+    .dropdown div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .dropdown div:hover {
+      background: #444;
+    }
+
+    .search {
+      background: #CBB38E;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 30px;
+      background: #111;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Gleefy</h1>
+
+<div class="toggle">
+  <button id="domesticBtn" class="active" onclick="setMode('domestic')">Domestic</button>
+  <button id="intlBtn" onclick="setMode('international')">International</button>
+</div>
+
+<div class="bar">
+
+  <div class="field">
+    <input id="origin" placeholder="From">
+    <div id="originList" class="dropdown"></div>
+  </div>
+
+  <div class="field">
+    <input id="destination" placeholder="To">
+    <div id="destinationList" class="dropdown"></div>
+  </div>
+
+  <div class="field">
+    <input id="date" type="date">
+  </div>
+
+  <button class="search" onclick="generate()">Search</button>
+
+</div>
+
+<div id="result" class="result"></div>
+
+<script>
+
+let mode = "domestic";
+
+const cities = [
+  { city:"Delhi",code:"DEL",type:"domestic" },
+  { city:"Mumbai",code:"BOM",type:"domestic" },
+  { city:"Bangalore",code:"BLR",type:"domestic" },
+  { city:"Goa",code:"GOI",type:"domestic" },
+
+  { city:"Paris",code:"CDG",type:"international" },
+  { city:"London",code:"LHR",type:"international" },
+  { city:"Dubai",code:"DXB",type:"international" },
+  { city:"New York",code:"JFK",type:"international" },
+  { city:"Singapore",code:"SIN",type:"international" },
+  { city:"Tokyo",code:"HND",type:"international" }
+];
+
+function setMode(m){
+  mode = m;
+
+  document.getElementById("domesticBtn").classList.remove("active");
+  document.getElementById("intlBtn").classList.remove("active");
+
+  if(m === "domestic"){
+    document.getElementById("domesticBtn").classList.add("active");
+  } else {
+    document.getElementById("intlBtn").classList.add("active");
+  }
+}
+
+document.getElementById("origin").addEventListener("input", () => showList("origin"));
+document.getElementById("destination").addEventListener("input", () => showList("destination"));
+
+function showList(field){
+  const value = document.getElementById(field).value.toLowerCase();
+  const list = document.getElementById(field + "List");
+
+  const matches = cities.filter(c =>
+    c.city.toLowerCase().includes(value) && c.type === mode
+  );
+
+  list.innerHTML = matches.map(c => `
+    <div onclick="selectCity('${field}','${c.code}')">
+      ${c.city} (${c.code})
+    </div>
+  `).join("");
+}
+
+function selectCity(field, code){
+  document.getElementById(field).value = code;
+  document.getElementById(field + "List").innerHTML = "";
+  document.getElementById(field).blur();
+}
+
+async function generate(){
+  const res = await fetch("/generate", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      origin: document.getElementById("origin").value,
+      destination: document.getElementById("destination").value,
+      date: document.getElementById("date").value
+    })
+  });
+
+  const data = await res.json();
+
+  document.getElementById("result").innerHTML = `
+    <h2>${data.destination}</h2>
+    <p>${data.airline} • ₹${data.flightPrice}</p>
+    <p>Total ₹${data.total}</p>
+  `;
+}
+
+</script>
+
+</body>
+</html>
