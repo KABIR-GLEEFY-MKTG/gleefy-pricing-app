@@ -18,7 +18,7 @@ body { background: #0B0B0B; color: #E7E1D7; font-family: 'Montserrat', sans-seri
 h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-weight: 600; letter-spacing: 0.02em; text-align: center; padding: 36px 0 4px; }
 .tagline { text-align: center; font-size: 11px; color: #6B6560; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 30px; }
 .wrap { max-width: 700px; margin: 0 auto; padding: 0 18px; }
-.toggle-row { display: flex; justify-content: center; margin-bottom: 16px; gap: 0; }
+.toggle-row { display: flex; justify-content: center; margin-bottom: 16px; }
 .toggle-btn { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 8px 22px; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; }
 .toggle-btn:first-child { border-radius: 6px 0 0 6px; }
 .toggle-btn:last-child { border-radius: 0 6px 6px 0; }
@@ -33,15 +33,17 @@ h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-we
 .city-input { background: transparent; border: none; outline: none; color: #E7E1D7; font-size: 15px; font-family: 'Montserrat', sans-serif; width: 100%; caret-color: #CBB38E; }
 .city-input::placeholder { color: #444; }
 .dropdown { position: absolute; top: 100%; left: 0; right: 0; background: #1C1C1C; border: 0.5px solid #333; border-top: none; z-index: 200; border-radius: 0 0 8px 8px; overflow: hidden; }
-.dd-item { padding: 11px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid #222; transition: background 0.12s; }
+.dd-item { padding: 11px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid #222; }
 .dd-item:hover { background: #252525; }
 .dd-city { color: #E7E1D7; font-size: 14px; }
 .dd-country { color: #6B6560; font-size: 12px; margin-left: 6px; }
 .dd-code { color: #CBB38E; font-size: 13px; font-weight: 600; }
 .swap-btn { background: transparent; border: none; border-right: 0.5px solid #2A2A2A; color: #CBB38E; font-size: 20px; cursor: pointer; padding: 0 14px; flex-shrink: 0; }
 .date-wrap { border-left: 0.5px solid #2A2A2A; padding: 12px 16px; flex-shrink: 0; display: flex; flex-direction: column; min-width: 130px; }
-input[type="date"] { background: transparent; border: none; outline: none; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; color-scheme: dark; cursor: pointer; margin-top: 4px; }
-.bottom-row { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+input[type="date"] { background: transparent; border: none; outline: none; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; color-scheme: dark; cursor: pointer; margin-top: 4px; width: 100%; }
+.return-card { display: none; background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; margin-bottom: 12px; }
+.return-card.show { display: flex; }
+.bottom-row { display: flex; gap: 10px; margin-bottom: 28px; }
 .pax-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; display: flex; align-items: center; padding: 0 14px; gap: 10px; flex-shrink: 0; }
 .pax-btn { background: none; border: none; color: #CBB38E; font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; font-family: 'Montserrat', sans-serif; }
 .pax-num { color: #E7E1D7; font-size: 16px; font-weight: 500; min-width: 18px; text-align: center; }
@@ -77,13 +79,12 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .detail-val { font-size: 13px; color: #E7E1D7; }
 .detail-footer { border-top: 0.5px solid #2A2A2A; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; }
 .total-amt { font-size: 15px; font-weight: 600; color: #E7E1D7; }
-.book-btn { background: #CBB38E; color: #000; border: none; padding: 9px 22px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; }
+.book-btn { background: #CBB38E; color: #000; border: none; padding: 9px 22px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Montserrat', sans-serif; text-decoration: none; display: inline-block; }
+.book-btn:hover { background: #d9c7a8; }
 .skel { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 22px 20px; margin-bottom: 12px; }
 .skel-line { background: #222; border-radius: 4px; animation: pulse 1.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
 .disclaimer { text-align: center; margin-top: 24px; font-size: 11px; color: #3A3530; }
-.return-card { display: none; }
-.return-card.show { display: flex; }
 </style>
 </head>
 <body>
@@ -127,10 +128,10 @@ input[type="date"] { background: transparent; border: none; outline: none; color
     </div>
   </div>
 
-  <div class="search-card return-card" id="returnCard">
-    <div class="field-inner" style="flex:1">
+  <div class="return-card" id="returnCard">
+    <div class="field-inner" style="flex:1;padding:12px 16px;">
       <div class="field-label">Return Date</div>
-      <input type="date" id="returnDateInput" style="background:transparent;border:none;outline:none;color:#E7E1D7;font-size:15px;font-family:Montserrat,sans-serif;color-scheme:dark;cursor:pointer;margin-top:4px;">
+      <input type="date" id="returnDateInput" style="background:transparent;border:none;outline:none;color:#E7E1D7;font-size:15px;font-family:Montserrat,sans-serif;color-scheme:dark;cursor:pointer;margin-top:4px;width:100%;">
     </div>
   </div>
 
@@ -182,6 +183,7 @@ let tripType = 'oneway';
 let cabinClass = 'economy';
 let originCode = '', destCode = '';
 let pax = 1;
+let searchDate = '';
 
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('dateInput').min = today;
@@ -202,8 +204,7 @@ function setTrip(t) {
   tripType = t;
   document.getElementById('oneWayBtn').classList.toggle('active', t==='oneway');
   document.getElementById('roundBtn').classList.toggle('active', t==='round');
-  const rc = document.getElementById('returnCard');
-  if (t === 'round') { rc.classList.add('show'); } else { rc.classList.remove('show'); }
+  document.getElementById('returnCard').classList.toggle('show', t==='round');
 }
 
 function setCabin(c) {
@@ -224,7 +225,7 @@ function filterCities(field) {
   ).slice(0, 6);
   if (!matches.length) { ddEl.style.display='none'; return; }
   ddEl.innerHTML = matches.map(c =>
-    '<div class="dd-item" onmousedown="selectCity(' + "'"+field+"'" + ',' + "'"+c.code+"'" + ',' + "'"+c.city+"'" + ')">' +
+    '<div class="dd-item" onmousedown="selectCity(' + "'"+field+"'," + "'"+c.code+"'," + "'"+c.city+"'" + ')">' +
     '<span><span class="dd-city">' + c.city + '</span><span class="dd-country">' + c.country + '</span></span>' +
     '<span class="dd-code">' + c.code + '</span></div>'
   ).join('');
@@ -276,6 +277,7 @@ async function doSearch() {
   if (!date) { showErr('Please select a travel date.'); return; }
   const returnDate = document.getElementById('returnDateInput').value;
   if (tripType === 'round' && !returnDate) { showErr('Please select a return date.'); return; }
+  searchDate = date;
 
   const btn = document.getElementById('searchBtn');
   btn.disabled = true; btn.textContent = 'Searching...';
@@ -299,7 +301,6 @@ async function doSearch() {
         cabinClass: cabinClass
       })
     });
-
     const data = await resp.json();
     if (!data.flights || !data.flights.length) {
       showErr('No flights found. Please try a different route or date.');
@@ -319,10 +320,12 @@ function renderResults(flights, oCity, dCity, date, returnDate) {
   const dateStr = new Date(date + 'T00:00:00').toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'});
   const cabinLabel = cabinClass === 'economy' ? 'Economy' : cabinClass === 'premium_economy' ? 'Premium Economy' : cabinClass === 'business' ? 'Business' : 'First Class';
   const tripLabel = tripType === 'round' ? 'Round Trip' : 'One Way';
+
   let html = '<div class="results-header"><div><span class="route-label">' + oCity.city + ' to ' + dCity.city + '</span><span style="font-size:13px;color:#6B6560;margin-left:10px">' + dateStr + ' · ' + pax + ' pax · ' + cabinLabel + ' · ' + tripLabel + '</span></div><span style="font-size:13px;color:#6B6560">' + flights.length + ' options</span></div>';
 
   flights.forEach(function(f, i) {
     const total = (f.price + f.taxes) * pax;
+    const bookingUrl = 'https://www.google.com/flights?q=flights+from+' + originCode + '+to+' + destCode + '+on+' + date;
     html += '<div class="flight-card' + (i===0?' best':'') + '" id="fc'+i+'">' +
       '<div class="flight-main" onclick="toggleCard('+i+')">' +
       (i===0?'<div class="best-badge">BEST</div>':'') +
@@ -343,12 +346,12 @@ function renderResults(flights, oCity, dCity, date, returnDate) {
       '<div><div class="detail-lbl">Seat Pitch</div><div class="detail-val">' + f.seatPitch + '</div></div>' +
       '<div><div class="detail-lbl">Wi-Fi</div><div class="detail-val">' + f.wifi + '</div></div>' +
       '</div>' +
-      '<div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.' + total.toLocaleString('en-IN') + '</span></div>' +
-      ''<a href="https://www.google.com/flights?q=flights+from+' + origin_code + '+to+' + dest_code + '+on+' + date + '" target="_blank" style="background:#CBB38E;color:#000;border:none;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif;text-decoration:none;">Book Now</a>'' +
-      '</div></div>';
+      '<div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.' + total.toLocaleString('en-IN') + '</span><span style="font-size:12px;color:#6B6560"> (incl. Rs.' + (f.taxes*pax).toLocaleString('en-IN') + ' taxes)</span></div>' +
+      '<a href="' + bookingUrl + '" target="_blank" class="book-btn">Book Now</a>' +
+      '</div></div></div>';
   });
 
-  html += '<p class="disclaimer">Prices are indicative estimates for reference only.</p>';
+  html += '<p class="disclaimer">Prices are indicative estimates. Book Now links to Google Flights for live booking.</p>';
   document.getElementById('results').innerHTML = html;
 }
 
@@ -366,18 +369,12 @@ function toggleCard(i) {
 
 app.post("/search", async (req, res) => {
   const { origin, destination, date, returnDate, pax, tripType, cabinClass } = req.body;
-
-  const cabinMap = {
-    economy: 1,
-    premium_economy: 2,
-    business: 3,
-    first: 4
-  };
-
-  const tripMap = {
-    oneway: 2,
-    round: 1
-  };
+  const cabinMap = { economy: 1, premium_economy: 2, business: 3, first: 4 };
+  const cabinLabel = { 1:"Economy", 2:"Premium Economy", 3:"Business", 4:"First Class" };
+  const baggageMap = { 1:"15kg check-in + 7kg cabin", 2:"20kg check-in + 10kg cabin", 3:"32kg check-in + 15kg cabin", 4:"40kg check-in + 18kg cabin" };
+  const seatMap = { 1:"29 inches", 2:"34 inches", 3:"60 inches", 4:"78 inches" };
+  const cabinNum = cabinMap[cabinClass] || 1;
+  const tripNum = tripType === 'round' ? 1 : 2;
 
   try {
     let url = "https://serpapi.com/search.json?engine=google_flights" +
@@ -386,8 +383,8 @@ app.post("/search", async (req, res) => {
       "&outbound_date=" + date +
       "&adults=" + pax +
       "&currency=INR&hl=en&gl=in" +
-      "&type=" + (tripMap[tripType] || 2) +
-      "&travel_class=" + (cabinMap[cabinClass] || 1) +
+      "&type=" + tripNum +
+      "&travel_class=" + cabinNum +
       "&api_key=" + process.env.SERPAPI_KEY;
 
     if (tripType === 'round' && returnDate) {
@@ -402,24 +399,19 @@ app.post("/search", async (req, res) => {
       return res.status(500).json({ error: "No flights found" });
     }
 
-    const cabinLabel = {1:"Economy", 2:"Premium Economy", 3:"Business", 4:"First Class"};
-    const baggageMap = {1:"15kg check-in + 7kg cabin", 2:"20kg check-in + 10kg cabin", 3:"32kg check-in + 15kg cabin", 4:"40kg check-in + 18kg cabin"};
-    const seatMap = {1:"29 inches", 2:"34 inches", 3:"60 inches", 4:"78 inches"};
-    const cabinNum = cabinMap[cabinClass] || 1;
-
     const flights = rawFlights.slice(0, 4).map((item, i) => {
       const leg = item.flights && item.flights[0];
       const price = item.price || 0;
       return {
-        airline: leg && leg.airline ? leg.airline : "Unknown",
-        flightNo: leg && leg.flight_number ? leg.flight_number : "N/A",
-        departure: leg && leg.departure_airport && leg.departure_airport.time ? leg.departure_airport.time.split(" ")[1] : "00:00",
-        arrival: leg && leg.arrival_airport && leg.arrival_airport.time ? leg.arrival_airport.time.split(" ")[1] : "00:00",
-        duration: (function(m){ return Math.floor(m/60)+"h "+(m%60)+"m"; })(item.total_duration || 0),
+        airline: leg ? leg.airline || "Unknown" : "Unknown",
+        flightNo: leg ? leg.flight_number || "N/A" : "N/A",
+        departure: leg && leg.departure_airport ? leg.departure_airport.time.split(" ")[1] : "00:00",
+        arrival: leg && leg.arrival_airport ? leg.arrival_airport.time.split(" ")[1] : "00:00",
+        duration: Math.floor((item.total_duration||0)/60) + "h " + ((item.total_duration||0)%60) + "m",
         stops: item.flights && item.flights.length === 1 ? "Non-stop" : (item.flights ? item.flights.length - 1 : 0) + " stop",
         price: price,
         taxes: Math.round(price * 0.2),
-        aircraft: leg && leg.airplane ? leg.airplane : "Standard Aircraft",
+        aircraft: leg ? leg.airplane || "Standard Aircraft" : "Standard Aircraft",
         cabinClass: cabinLabel[cabinNum],
         baggage: baggageMap[cabinNum],
         meal: cabinNum >= 2 ? "Complimentary" : i === 0 ? "Complimentary" : "Buy on board",
