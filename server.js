@@ -296,7 +296,7 @@ app.post("/search", async (req, res) => {
       "&arrival_id=" + destination +
       "&outbound_date=" + date +
       "&adults=" + pax +
-      "&currency=INR&hl=en&gl=in" +
+      "&currency=INR&hl=en&gl=in&type=2" +
       "&api_key=" + process.env.SERPAPI_KEY;
     const response = await fetch(url);
     const data = await response.json();
