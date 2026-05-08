@@ -344,7 +344,7 @@ function renderResults(flights, oCity, dCity, date, returnDate) {
       '<div><div class="detail-lbl">Wi-Fi</div><div class="detail-val">' + f.wifi + '</div></div>' +
       '</div>' +
       '<div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.' + total.toLocaleString('en-IN') + '</span></div>' +
-      '<button class="book-btn">Book Now</button></div>' +
+      ''<a href="https://www.google.com/flights?q=flights+from+' + origin_code + '+to+' + dest_code + '+on+' + date + '" target="_blank" style="background:#CBB38E;color:#000;border:none;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif;text-decoration:none;">Book Now</a>'' +
       '</div></div>';
   });
 
