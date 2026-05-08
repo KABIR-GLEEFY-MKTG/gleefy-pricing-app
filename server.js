@@ -16,8 +16,15 @@ app.get("/", (req, res) => {
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0B0B0B; color: #E7E1D7; font-family: 'Montserrat', sans-serif; min-height: 100vh; padding-bottom: 60px; }
 h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-weight: 600; letter-spacing: 0.02em; text-align: center; padding: 36px 0 4px; }
-.tagline { text-align: center; font-size: 11px; color: #6B6560; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 30px; }
+.tagline { text-align: center; font-size: 11px; color: #6B6560; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px; }
 .wrap { max-width: 700px; margin: 0 auto; padding: 0 18px; }
+.main-tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 28px; }
+.main-tab { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 10px 32px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; }
+.main-tab:first-child { border-radius: 6px 0 0 6px; }
+.main-tab:last-child { border-radius: 0 6px 6px 0; }
+.main-tab.active { background: #CBB38E; color: #000; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 .toggle-row { display: flex; justify-content: center; margin-bottom: 16px; }
 .toggle-btn { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 8px 22px; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; }
 .toggle-btn:first-child { border-radius: 6px 0 0 6px; }
@@ -50,8 +57,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .search-btn { flex: 1; background: #CBB38E; color: #000; border: none; border-radius: 10px; padding: 16px 0; font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
 .search-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .err-box { background: #2A1010; border: 0.5px solid #5A2020; border-radius: 8px; padding: 12px 16px; color: #E07070; font-size: 13px; margin-bottom: 18px; }
-.results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.route-label { font-size: 15px; font-weight: 500; }
 .flight-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
 .flight-card.best { border-color: #CBB38E; }
 .flight-main { padding: 18px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px; }
@@ -85,73 +90,177 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .skel-line { background: #222; border-radius: 4px; animation: pulse 1.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
 .disclaimer { text-align: center; margin-top: 24px; font-size: 11px; color: #3A3530; }
+.results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.route-label { font-size: 15px; font-weight: 500; }
+.itin-form { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+.itin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.itin-field { display: flex; flex-direction: column; }
+.itin-label { font-size: 10px; color: #6B6560; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+.itin-input { background: #1A1A1A; border: 0.5px solid #2A2A2A; border-radius: 6px; padding: 10px 12px; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none; }
+.itin-input:focus { border-color: #CBB38E; }
+.itin-select { background: #1A1A1A; border: 0.5px solid #2A2A2A; border-radius: 6px; padding: 10px 12px; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none; cursor: pointer; }
+.itin-textarea { background: #1A1A1A; border: 0.5px solid #2A2A2A; border-radius: 6px; padding: 10px 12px; color: #E7E1D7; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none; resize: vertical; min-height: 80px; width: 100%; }
+.itin-btn { width: 100%; background: #CBB38E; color: #000; border: none; border-radius: 10px; padding: 16px 0; font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; margin-top: 8px; }
+.itin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.itin-result { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 24px; margin-top: 20px; }
+.itin-result h2 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 24px; margin-bottom: 6px; }
+.itin-result h3 { color: #CBB38E; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 20px 0 10px; border-top: 0.5px solid #2A2A2A; padding-top: 16px; }
+.itin-result h4 { color: #E7E1D7; font-size: 13px; font-weight: 600; margin: 12px 0 6px; }
+.itin-result p { color: #A09890; font-size: 13px; line-height: 1.7; margin-bottom: 8px; }
+.itin-result ul { padding-left: 16px; margin-bottom: 8px; }
+.itin-result li { color: #A09890; font-size: 13px; line-height: 1.8; }
+.itin-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 0.5px solid #2A2A2A; }
+.itin-link { background: transparent; border: 1px solid #CBB38E; color: #CBB38E; padding: 8px 16px; border-radius: 6px; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.18s; }
+.itin-link:hover { background: #CBB38E; color: #000; }
+.summary-box { background: #0E0E0E; border: 0.5px solid #2A2A2A; border-radius: 8px; padding: 16px; margin-bottom: 16px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.summary-item { text-align: center; }
+.summary-label { font-size: 10px; color: #6B6560; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.summary-value { font-size: 16px; font-weight: 600; color: #CBB38E; }
 </style>
 </head>
 <body>
 <h1>Gleefy</h1>
-<p class="tagline">Luxury Travel Rates</p>
+<p class="tagline">Luxury Travel Planning</p>
 <div class="wrap">
 
-  <div class="toggle-row">
-    <button class="toggle-btn active" id="domBtn" onclick="setMode('domestic')">Domestic</button>
-    <button class="toggle-btn" id="intlBtn" onclick="setMode('international')">International</button>
+  <div class="main-tabs">
+    <button class="main-tab active" onclick="switchTab('flights')">✈ Flights</button>
+    <button class="main-tab" onclick="switchTab('itinerary')">🗺 Itinerary</button>
   </div>
 
-  <div class="options-row">
-    <button class="option-btn active" id="oneWayBtn" onclick="setTrip('oneway')">One Way</button>
-    <button class="option-btn" id="roundBtn" onclick="setTrip('round')">Round Trip</button>
-    <button class="option-btn active" id="econBtn" onclick="setCabin('economy')">Economy</button>
-    <button class="option-btn" id="premEconBtn" onclick="setCabin('premium_economy')">Premium Economy</button>
-    <button class="option-btn" id="bizBtn" onclick="setCabin('business')">Business</button>
-    <button class="option-btn" id="firstBtn" onclick="setCabin('first')">First Class</button>
-  </div>
-
-  <div class="search-card">
-    <div class="field-wrap">
-      <div class="field-inner">
-        <div class="field-label">From</div>
-        <input class="city-input" id="originInput" placeholder="City or airport" oninput="filterCities('origin')" onfocus="filterCities('origin')" onblur="setTimeout(()=>hideDD('origin'),200)">
+  <div id="flightsTab" class="tab-content active">
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="domBtn" onclick="setMode('domestic')">Domestic</button>
+      <button class="toggle-btn" id="intlBtn" onclick="setMode('international')">International</button>
+    </div>
+    <div class="options-row">
+      <button class="option-btn active" id="oneWayBtn" onclick="setTrip('oneway')">One Way</button>
+      <button class="option-btn" id="roundBtn" onclick="setTrip('round')">Round Trip</button>
+      <button class="option-btn active" id="econBtn" onclick="setCabin('economy')">Economy</button>
+      <button class="option-btn" id="premEconBtn" onclick="setCabin('premium_economy')">Premium Economy</button>
+      <button class="option-btn" id="bizBtn" onclick="setCabin('business')">Business</button>
+      <button class="option-btn" id="firstBtn" onclick="setCabin('first')">First Class</button>
+    </div>
+    <div class="search-card">
+      <div class="field-wrap">
+        <div class="field-inner">
+          <div class="field-label">From</div>
+          <input class="city-input" id="originInput" placeholder="City or airport" oninput="filterCities('origin')" onfocus="filterCities('origin')" onblur="setTimeout(()=>hideDD('origin'),200)">
+        </div>
+        <div class="dropdown" id="originDD" style="display:none"></div>
       </div>
-      <div class="dropdown" id="originDD" style="display:none"></div>
-    </div>
-    <button class="swap-btn" onclick="swapCities()">⇄</button>
-    <div class="field-wrap">
-      <div class="field-inner">
-        <div class="field-label">To</div>
-        <input class="city-input" id="destInput" placeholder="City or airport" oninput="filterCities('dest')" onfocus="filterCities('dest')" onblur="setTimeout(()=>hideDD('dest'),200)">
+      <button class="swap-btn" onclick="swapCities()">⇄</button>
+      <div class="field-wrap">
+        <div class="field-inner">
+          <div class="field-label">To</div>
+          <input class="city-input" id="destInput" placeholder="City or airport" oninput="filterCities('dest')" onfocus="filterCities('dest')" onblur="setTimeout(()=>hideDD('dest'),200)">
+        </div>
+        <div class="dropdown" id="destDD" style="display:none"></div>
       </div>
-      <div class="dropdown" id="destDD" style="display:none"></div>
+      <div class="date-wrap">
+        <div class="field-label">Depart</div>
+        <input type="date" id="dateInput">
+      </div>
     </div>
-    <div class="date-wrap">
-      <div class="field-label">Depart</div>
-      <input type="date" id="dateInput">
+    <div class="return-card" id="returnCard">
+      <div class="field-inner" style="flex:1;padding:12px 16px;">
+        <div class="field-label">Return Date</div>
+        <input type="date" id="returnDateInput" style="background:transparent;border:none;outline:none;color:#E7E1D7;font-size:15px;font-family:Montserrat,sans-serif;color-scheme:dark;cursor:pointer;margin-top:4px;width:100%;">
+      </div>
     </div>
+    <div class="bottom-row">
+      <div class="pax-card">
+        <span class="field-label" style="white-space:nowrap">Passengers</span>
+        <button class="pax-btn" onclick="changePax(-1)">-</button>
+        <span class="pax-num" id="paxNum">1</span>
+        <button class="pax-btn" onclick="changePax(1)">+</button>
+      </div>
+      <button class="search-btn" id="searchBtn" onclick="doSearch()">Search Flights</button>
+    </div>
+    <div id="errBox" class="err-box" style="display:none"></div>
+    <div id="loading" style="display:none">
+      <div class="skel"><div class="skel-line" style="height:14px;width:130px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:220px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:14px;width:110px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:200px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:14px;width:150px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:180px"></div></div>
+    </div>
+    <div id="results"></div>
   </div>
 
-  <div class="return-card" id="returnCard">
-    <div class="field-inner" style="flex:1;padding:12px 16px;">
-      <div class="field-label">Return Date</div>
-      <input type="date" id="returnDateInput" style="background:transparent;border:none;outline:none;color:#E7E1D7;font-size:15px;font-family:Montserrat,sans-serif;color-scheme:dark;cursor:pointer;margin-top:4px;width:100%;">
+  <div id="itineraryTab" class="tab-content">
+    <div class="itin-form">
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Where from?</label>
+          <input class="itin-input" id="itinFrom" placeholder="e.g. Mumbai">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Destination</label>
+          <input class="itin-input" id="itinDest" placeholder="e.g. Paris">
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Start Date</label>
+          <input class="itin-input" type="date" id="itinStart">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">End Date</label>
+          <input class="itin-input" type="date" id="itinEnd">
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Travellers</label>
+          <input class="itin-input" type="number" id="itinPax" value="2" min="1" max="20">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Budget</label>
+          <select class="itin-select" id="itinBudget">
+            <option value="budget">Budget</option>
+            <option value="mid-range" selected>Mid Range</option>
+            <option value="luxury">Luxury</option>
+            <option value="ultra-luxury">Ultra Luxury</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Travel Style</label>
+          <select class="itin-select" id="itinStyle">
+            <option value="cultural">Cultural & Sightseeing</option>
+            <option value="adventure">Adventure & Outdoors</option>
+            <option value="relaxation">Relaxation & Wellness</option>
+            <option value="food">Food & Nightlife</option>
+            <option value="family">Family Friendly</option>
+            <option value="romantic">Romantic</option>
+            <option value="mixed" selected>Mixed</option>
+          </select>
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Accommodation</label>
+          <select class="itin-select" id="itinHotel">
+            <option value="hostel">Hostel / Budget</option>
+            <option value="3star">3 Star Hotel</option>
+            <option value="4star" selected>4 Star Hotel</option>
+            <option value="5star">5 Star Hotel</option>
+            <option value="boutique">Boutique Hotel</option>
+            <option value="resort">Luxury Resort</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-field" style="margin-bottom:12px">
+        <label class="itin-label">Any special requests or interests?</label>
+        <textarea class="itin-textarea" id="itinNotes" placeholder="e.g. vegetarian food, avoid crowded places, interested in art museums, need wheelchair access..."></textarea>
+      </div>
+      <button class="itin-btn" id="itinBtn" onclick="buildItinerary()">Build My Itinerary</button>
     </div>
+    <div id="itinLoading" style="display:none">
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:90%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:95%"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:85%"></div></div>
+    </div>
+    <div id="itinResult"></div>
   </div>
 
-  <div class="bottom-row">
-    <div class="pax-card">
-      <span class="field-label" style="white-space:nowrap">Passengers</span>
-      <button class="pax-btn" onclick="changePax(-1)">-</button>
-      <span class="pax-num" id="paxNum">1</span>
-      <button class="pax-btn" onclick="changePax(1)">+</button>
-    </div>
-    <button class="search-btn" id="searchBtn" onclick="doSearch()">Search Flights</button>
-  </div>
-
-  <div id="errBox" class="err-box" style="display:none"></div>
-  <div id="loading" style="display:none">
-    <div class="skel"><div class="skel-line" style="height:14px;width:130px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:220px"></div></div>
-    <div class="skel"><div class="skel-line" style="height:14px;width:110px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:200px"></div></div>
-    <div class="skel"><div class="skel-line" style="height:14px;width:150px;margin-bottom:10px"></div><div class="skel-line" style="height:24px;width:180px"></div></div>
-  </div>
-  <div id="results"></div>
 </div>
 
 <script>
@@ -183,12 +292,21 @@ let tripType = 'oneway';
 let cabinClass = 'economy';
 let originCode = '', destCode = '';
 let pax = 1;
-let searchDate = '';
 
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('dateInput').min = today;
 document.getElementById('dateInput').value = today;
 document.getElementById('returnDateInput').min = today;
+document.getElementById('itinStart').min = today;
+document.getElementById('itinEnd').min = today;
+
+function switchTab(tab) {
+  document.getElementById('flightsTab').classList.toggle('active', tab==='flights');
+  document.getElementById('itineraryTab').classList.toggle('active', tab==='itinerary');
+  document.querySelectorAll('.main-tab').forEach(function(el, i) {
+    el.classList.toggle('active', (tab==='flights' && i===0) || (tab==='itinerary' && i===1));
+  });
+}
 
 function setMode(m) {
   mode = m;
@@ -277,7 +395,6 @@ async function doSearch() {
   if (!date) { showErr('Please select a travel date.'); return; }
   const returnDate = document.getElementById('returnDateInput').value;
   if (tripType === 'round' && !returnDate) { showErr('Please select a return date.'); return; }
-  searchDate = date;
 
   const btn = document.getElementById('searchBtn');
   btn.disabled = true; btn.textContent = 'Searching...';
@@ -291,21 +408,10 @@ async function doSearch() {
     const resp = await fetch('/search', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        origin: originCode,
-        destination: destCode,
-        date: date,
-        returnDate: returnDate,
-        pax: pax,
-        tripType: tripType,
-        cabinClass: cabinClass
-      })
+      body: JSON.stringify({ origin: originCode, destination: destCode, date: date, returnDate: returnDate, pax: pax, tripType: tripType, cabinClass: cabinClass })
     });
     const data = await resp.json();
-    if (!data.flights || !data.flights.length) {
-      showErr('No flights found. Please try a different route or date.');
-      return;
-    }
+    if (!data.flights || !data.flights.length) { showErr('No flights found. Please try a different route or date.'); return; }
     renderResults(data.flights, oCity, dCity, date, returnDate);
   } catch(e) {
     showErr('Could not fetch flights. Please try again.');
@@ -320,23 +426,18 @@ function renderResults(flights, oCity, dCity, date, returnDate) {
   const dateStr = new Date(date + 'T00:00:00').toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'});
   const cabinLabel = cabinClass === 'economy' ? 'Economy' : cabinClass === 'premium_economy' ? 'Premium Economy' : cabinClass === 'business' ? 'Business' : 'First Class';
   const tripLabel = tripType === 'round' ? 'Round Trip' : 'One Way';
-
   let html = '<div class="results-header"><div><span class="route-label">' + oCity.city + ' to ' + dCity.city + '</span><span style="font-size:13px;color:#6B6560;margin-left:10px">' + dateStr + ' · ' + pax + ' pax · ' + cabinLabel + ' · ' + tripLabel + '</span></div><span style="font-size:13px;color:#6B6560">' + flights.length + ' options</span></div>';
-
   flights.forEach(function(f, i) {
     const total = (f.price + f.taxes) * pax;
     const bookingUrl = 'https://www.google.com/flights?q=flights+from+' + originCode + '+to+' + destCode + '+on+' + date;
     html += '<div class="flight-card' + (i===0?' best':'') + '" id="fc'+i+'">' +
       '<div class="flight-main" onclick="toggleCard('+i+')">' +
       (i===0?'<div class="best-badge">BEST</div>':'') +
-      '<div class="flight-info">' +
-      '<div class="airline-row"><span class="airline-name">' + f.airline + '</span><span class="flight-no">' + f.flightNo + '</span></div>' +
+      '<div class="flight-info"><div class="airline-row"><span class="airline-name">' + f.airline + '</span><span class="flight-no">' + f.flightNo + '</span></div>' +
       '<div class="time-row"><span class="time">' + f.departure + '</span><div class="connector"><div class="line"></div><span class="dur">' + f.duration + '</span><div class="line"></div></div><span class="time">' + f.arrival + '</span></div>' +
-      '<div class="stops-row"><span class="stops-txt">' + f.stops + '</span>' + (f.refundable?'<span class="ref-badge">Refundable</span>':'') + '</div>' +
-      '</div>' +
+      '<div class="stops-row"><span class="stops-txt">' + f.stops + '</span>' + (f.refundable?'<span class="ref-badge">Refundable</span>':'') + '</div></div>' +
       '<div class="price-col"><div class="price-num">Rs.' + f.price.toLocaleString('en-IN') + '</div><div class="price-sub">per person</div></div>' +
-      '<div class="chevron" id="chev'+i+'">▾</div>' +
-      '</div>' +
+      '<div class="chevron" id="chev'+i+'">▾</div></div>' +
       '<div class="flight-detail" id="fd'+i+'" style="display:none">' +
       '<div class="detail-grid">' +
       '<div><div class="detail-lbl">Aircraft</div><div class="detail-val">' + f.aircraft + '</div></div>' +
@@ -345,13 +446,10 @@ function renderResults(flights, oCity, dCity, date, returnDate) {
       '<div><div class="detail-lbl">Meal</div><div class="detail-val">' + f.meal + '</div></div>' +
       '<div><div class="detail-lbl">Seat Pitch</div><div class="detail-val">' + f.seatPitch + '</div></div>' +
       '<div><div class="detail-lbl">Wi-Fi</div><div class="detail-val">' + f.wifi + '</div></div>' +
-      '</div>' +
-      '<div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.' + total.toLocaleString('en-IN') + '</span><span style="font-size:12px;color:#6B6560"> (incl. Rs.' + (f.taxes*pax).toLocaleString('en-IN') + ' taxes)</span></div>' +
-      '<a href="' + bookingUrl + '" target="_blank" class="book-btn">Book Now</a>' +
-      '</div></div></div>';
+      '</div><div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.' + total.toLocaleString('en-IN') + '</span></div>' +
+      '<a href="' + bookingUrl + '" target="_blank" class="book-btn">Book Now</a></div></div></div>';
   });
-
-  html += '<p class="disclaimer">Prices are indicative estimates. Book Now links to Google Flights for live booking.</p>';
+  html += '<p class="disclaimer">Prices are indicative estimates. Book Now links to Google Flights.</p>';
   document.getElementById('results').innerHTML = html;
 }
 
@@ -361,6 +459,45 @@ function toggleCard(i) {
   const open = fd.style.display === 'block';
   fd.style.display = open ? 'none' : 'block';
   ch.style.transform = open ? 'none' : 'rotate(180deg)';
+}
+
+async function buildItinerary() {
+  const from = document.getElementById('itinFrom').value.trim();
+  const dest = document.getElementById('itinDest').value.trim();
+  const start = document.getElementById('itinStart').value;
+  const end = document.getElementById('itinEnd').value;
+  const travellers = document.getElementById('itinPax').value;
+  const budget = document.getElementById('itinBudget').value;
+  const style = document.getElementById('itinStyle').value;
+  const hotel = document.getElementById('itinHotel').value;
+  const notes = document.getElementById('itinNotes').value.trim();
+
+  if (!from || !dest || !start || !end) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  const btn = document.getElementById('itinBtn');
+  btn.disabled = true; btn.textContent = 'Building Your Itinerary...';
+  document.getElementById('itinLoading').style.display = 'block';
+  document.getElementById('itinResult').innerHTML = '';
+
+  try {
+    const resp = await fetch('/itinerary', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ from, dest, start, end, travellers, budget, style, hotel, notes })
+    });
+    const data = await resp.json();
+    if (data.error) { alert('Could not build itinerary. Please try again.'); return; }
+    document.getElementById('itinResult').innerHTML = data.html;
+  } catch(e) {
+    alert('Could not build itinerary. Please try again.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Build My Itinerary';
+    document.getElementById('itinLoading').style.display = 'none';
+  }
 }
 </script>
 </body>
@@ -378,26 +515,17 @@ app.post("/search", async (req, res) => {
 
   try {
     let url = "https://serpapi.com/search.json?engine=google_flights" +
-      "&departure_id=" + origin +
-      "&arrival_id=" + destination +
-      "&outbound_date=" + date +
-      "&adults=" + pax +
-      "&currency=INR&hl=en&gl=in" +
-      "&type=" + tripNum +
+      "&departure_id=" + origin + "&arrival_id=" + destination +
+      "&outbound_date=" + date + "&adults=" + pax +
+      "&currency=INR&hl=en&gl=in&type=" + tripNum +
       "&travel_class=" + cabinNum +
       "&api_key=" + process.env.SERPAPI_KEY;
-
-    if (tripType === 'round' && returnDate) {
-      url += "&return_date=" + returnDate;
-    }
+    if (tripType === 'round' && returnDate) url += "&return_date=" + returnDate;
 
     const response = await fetch(url);
     const data = await response.json();
     const rawFlights = data.best_flights || data.other_flights || [];
-
-    if (!rawFlights.length) {
-      return res.status(500).json({ error: "No flights found" });
-    }
+    if (!rawFlights.length) return res.status(500).json({ error: "No flights found" });
 
     const flights = rawFlights.slice(0, 4).map((item, i) => {
       const leg = item.flights && item.flights[0];
@@ -409,8 +537,7 @@ app.post("/search", async (req, res) => {
         arrival: leg && leg.arrival_airport ? leg.arrival_airport.time.split(" ")[1] : "00:00",
         duration: Math.floor((item.total_duration||0)/60) + "h " + ((item.total_duration||0)%60) + "m",
         stops: item.flights && item.flights.length === 1 ? "Non-stop" : (item.flights ? item.flights.length - 1 : 0) + " stop",
-        price: price,
-        taxes: Math.round(price * 0.2),
+        price, taxes: Math.round(price * 0.2),
         aircraft: leg ? leg.airplane || "Standard Aircraft" : "Standard Aircraft",
         cabinClass: cabinLabel[cabinNum],
         baggage: baggageMap[cabinNum],
@@ -420,12 +547,97 @@ app.post("/search", async (req, res) => {
         refundable: cabinNum >= 3
       };
     });
-
     res.json({ flights });
-
   } catch (err) {
     console.error("Error:", err);
     res.status(500).json({ error: "Failed to fetch flights" });
+  }
+});
+
+app.post("/itinerary", async (req, res) => {
+  const { from, dest, start, end, travellers, budget, style, hotel, notes } = req.body;
+
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
+  const prompt = `You are a luxury travel planner for Gleefy. Create a detailed ${days}-day travel itinerary.
+
+Trip details:
+- From: ${from}
+- Destination: ${dest}
+- Dates: ${start} to ${end} (${days} days)
+- Travellers: ${travellers}
+- Budget: ${budget}
+- Style: ${style}
+- Accommodation: ${hotel}
+- Special requests: ${notes || 'None'}
+
+Write a complete day by day itinerary including:
+1. A short exciting trip summary (2-3 sentences)
+2. Estimated total budget in INR
+3. For each day: morning, afternoon and evening activities with specific place names
+4. Hotel recommendations (2 specific hotel names that match the budget)
+5. Car/transport recommendations
+6. Top 3 restaurants to try
+7. Key travel tips
+
+Format your response clearly with Day 1, Day 2 etc headings. Be specific with real place names, real hotels, real restaurants. Keep it practical and exciting.`;
+
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + process.env.GEMINI_API_KEY,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.8, maxOutputTokens: 2048 }
+        })
+      }
+    );
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+    const flightsUrl = "https://www.google.com/flights?q=flights+from+" + encodeURIComponent(from) + "+to+" + encodeURIComponent(dest);
+    const hotelsUrl = "https://www.google.com/travel/hotels/" + encodeURIComponent(dest);
+    const carsUrl = "https://www.google.com/travel/explore?dest=" + encodeURIComponent(dest);
+    const mapsUrl = "https://www.google.com/maps/search/" + encodeURIComponent(dest);
+
+    const formatted = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/^### (.*)/gm, '<h4>$1</h4>')
+      .replace(/^## (.*)/gm, '<h3>$1</h3>')
+      .replace(/^# (.*)/gm, '<h3>$1</h3>')
+      .replace(/^Day (\d+)/gm, '<h3>Day $1</h3>')
+      .replace(/^\* (.*)/gm, '<li>$1</li>')
+      .replace(/^- (.*)/gm, '<li>$1</li>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/^(?!<[hlu])/gm, '')
+      .split('\n').join('<br>');
+
+    const html = '<div class="itin-result">' +
+      '<h2>' + dest + ' Itinerary</h2>' +
+      '<p style="color:#6B6560;font-size:13px;margin-bottom:16px">' + days + ' days · ' + travellers + ' travellers · ' + budget + ' budget</p>' +
+      '<div class="summary-box">' +
+      '<div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">' + days + ' Days</div></div>' +
+      '<div class="summary-item"><div class="summary-label">Travellers</div><div class="summary-value">' + travellers + '</div></div>' +
+      '<div class="summary-item"><div class="summary-label">Style</div><div class="summary-value">' + style.charAt(0).toUpperCase() + style.slice(1) + '</div></div>' +
+      '</div>' +
+      '<div>' + formatted + '</div>' +
+      '<div class="itin-links">' +
+      '<a href="' + flightsUrl + '" target="_blank" class="itin-link">✈ Book Flights</a>' +
+      '<a href="' + hotelsUrl + '" target="_blank" class="itin-link">🏨 Book Hotels</a>' +
+      '<a href="' + carsUrl + '" target="_blank" class="itin-link">🚗 Rent a Car</a>' +
+      '<a href="' + mapsUrl + '" target="_blank" class="itin-link">🗺 Explore Map</a>' +
+      '</div></div>';
+
+    res.json({ html });
+
+  } catch (err) {
+    console.error("Gemini error:", err);
+    res.status(500).json({ error: "Failed to build itinerary" });
   }
 });
 
