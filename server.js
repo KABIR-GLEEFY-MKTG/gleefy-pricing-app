@@ -103,7 +103,7 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .itin-btn { width: 100%; background: #CBB38E; color: #000; border: none; border-radius: 10px; padding: 16px 0; font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
 .itin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .section-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
-.section-title { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-title { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 20px; margin-bottom: 16px; }
 .trip-summary { background: #0E0E0E; border-radius: 8px; padding: 16px; margin-bottom: 16px; color: #A09890; font-size: 13px; line-height: 1.8; }
 .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
 .summary-item { background: #0E0E0E; border-radius: 8px; padding: 14px; text-align: center; }
@@ -117,7 +117,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .hotel-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 .hotel-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .hotel-details { color: #6B6560; font-size: 12px; }
-.hotel-price { color: #CBB38E; font-size: 16px; font-weight: 700; text-align: right; }
 .car-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 .car-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .car-details { color: #6B6560; font-size: 12px; }
@@ -268,28 +267,7 @@ input[type="date"] { background: transparent; border: none; outline: none; color
   </div>
 </div>
 <script>
-const cities = [
-  {city:"Delhi",code:"DEL",country:"India",type:"both"},
-  {city:"Mumbai",code:"BOM",country:"India",type:"both"},
-  {city:"Bangalore",code:"BLR",country:"India",type:"both"},
-  {city:"Goa",code:"GOI",country:"India",type:"both"},
-  {city:"Chennai",code:"MAA",country:"India",type:"both"},
-  {city:"Hyderabad",code:"HYD",country:"India",type:"both"},
-  {city:"Kolkata",code:"CCU",country:"India",type:"both"},
-  {city:"Jaipur",code:"JAI",country:"India",type:"both"},
-  {city:"Pune",code:"PNQ",country:"India",type:"both"},
-  {city:"Ahmedabad",code:"AMD",country:"India",type:"both"},
-  {city:"Paris",code:"CDG",country:"France",type:"international"},
-  {city:"London",code:"LHR",country:"United Kingdom",type:"international"},
-  {city:"Dubai",code:"DXB",country:"UAE",type:"international"},
-  {city:"New York",code:"JFK",country:"USA",type:"international"},
-  {city:"Singapore",code:"SIN",country:"Singapore",type:"international"},
-  {city:"Tokyo",code:"HND",country:"Japan",type:"international"},
-  {city:"Bangkok",code:"BKK",country:"Thailand",type:"international"},
-  {city:"Sydney",code:"SYD",country:"Australia",type:"international"},
-  {city:"Frankfurt",code:"FRA",country:"Germany",type:"international"},
-  {city:"Toronto",code:"YYZ",country:"Canada",type:"international"},
-];
+const cities=[{city:"Delhi",code:"DEL",country:"India",type:"both"},{city:"Mumbai",code:"BOM",country:"India",type:"both"},{city:"Bangalore",code:"BLR",country:"India",type:"both"},{city:"Goa",code:"GOI",country:"India",type:"both"},{city:"Chennai",code:"MAA",country:"India",type:"both"},{city:"Hyderabad",code:"HYD",country:"India",type:"both"},{city:"Kolkata",code:"CCU",country:"India",type:"both"},{city:"Jaipur",code:"JAI",country:"India",type:"both"},{city:"Pune",code:"PNQ",country:"India",type:"both"},{city:"Ahmedabad",code:"AMD",country:"India",type:"both"},{city:"Paris",code:"CDG",country:"France",type:"international"},{city:"London",code:"LHR",country:"United Kingdom",type:"international"},{city:"Dubai",code:"DXB",country:"UAE",type:"international"},{city:"New York",code:"JFK",country:"USA",type:"international"},{city:"Singapore",code:"SIN",country:"Singapore",type:"international"},{city:"Tokyo",code:"HND",country:"Japan",type:"international"},{city:"Bangkok",code:"BKK",country:"Thailand",type:"international"},{city:"Sydney",code:"SYD",country:"Australia",type:"international"},{city:"Frankfurt",code:"FRA",country:"Germany",type:"international"},{city:"Toronto",code:"YYZ",country:"Canada",type:"international"}];
 let mode='domestic',tripType='oneway',cabinClass='economy',originCode='',destCode='',pax=1;
 const today=new Date().toISOString().split('T')[0];
 document.getElementById('dateInput').min=today;
@@ -297,23 +275,11 @@ document.getElementById('dateInput').value=today;
 document.getElementById('returnDateInput').min=today;
 document.getElementById('itinStart').min=today;
 document.getElementById('itinEnd').min=today;
-function switchTab(tab){
-  document.getElementById('flightsTab').classList.toggle('active',tab==='flights');
-  document.getElementById('itineraryTab').classList.toggle('active',tab==='itinerary');
-  document.querySelectorAll('.main-tab').forEach(function(el,i){el.classList.toggle('active',(tab==='flights'&&i===0)||(tab==='itinerary'&&i===1));});
-}
+function switchTab(tab){document.getElementById('flightsTab').classList.toggle('active',tab==='flights');document.getElementById('itineraryTab').classList.toggle('active',tab==='itinerary');document.querySelectorAll('.main-tab').forEach(function(el,i){el.classList.toggle('active',(tab==='flights'&&i===0)||(tab==='itinerary'&&i===1));});}
 function setMode(m){mode=m;originCode='';destCode='';document.getElementById('originInput').value='';document.getElementById('destInput').value='';document.getElementById('domBtn').classList.toggle('active',m==='domestic');document.getElementById('intlBtn').classList.toggle('active',m==='international');document.getElementById('results').innerHTML='';}
 function setTrip(t){tripType=t;document.getElementById('oneWayBtn').classList.toggle('active',t==='oneway');document.getElementById('roundBtn').classList.toggle('active',t==='round');document.getElementById('returnCard').classList.toggle('show',t==='round');}
 function setCabin(c){cabinClass=c;['econ','premEcon','biz','first'].forEach(function(id){document.getElementById(id+'Btn').classList.remove('active');});document.getElementById({economy:'econ',premium_economy:'premEcon',business:'biz',first:'first'}[c]+'Btn').classList.add('active');}
-function filterCities(field){
-  const inputEl=document.getElementById(field==='origin'?'originInput':'destInput');
-  const ddEl=document.getElementById(field==='origin'?'originDD':'destDD');
-  const val=inputEl.value.toLowerCase();
-  const matches=cities.filter(c=>(c.type===mode||c.type==='both')&&(c.city.toLowerCase().includes(val)||c.code.toLowerCase().includes(val))).slice(0,6);
-  if(!matches.length){ddEl.style.display='none';return;}
-  ddEl.innerHTML=matches.map(c=>'<div class="dd-item" onmousedown="selectCity(' + "'"+field+"'," + "'"+c.code+"'," + "'"+c.city+"'" + ')"><span><span class="dd-city">'+c.city+'</span><span class="dd-country">'+c.country+'</span></span><span class="dd-code">'+c.code+'</span></div>').join('');
-  ddEl.style.display='block';
-}
+function filterCities(field){const inputEl=document.getElementById(field==='origin'?'originInput':'destInput');const ddEl=document.getElementById(field==='origin'?'originDD':'destDD');const val=inputEl.value.toLowerCase();const matches=cities.filter(c=>(c.type===mode||c.type==='both')&&(c.city.toLowerCase().includes(val)||c.code.toLowerCase().includes(val))).slice(0,6);if(!matches.length){ddEl.style.display='none';return;}ddEl.innerHTML=matches.map(c=>'<div class="dd-item" onmousedown="selectCity('+"'"+field+"',"+"'"+c.code+"',"+"'"+c.city+"'"+')">'+'<span><span class="dd-city">'+c.city+'</span><span class="dd-country">'+c.country+'</span></span><span class="dd-code">'+c.code+'</span></div>').join('');ddEl.style.display='block';}
 function selectCity(field,code,city){if(field==='origin'){originCode=code;document.getElementById('originInput').value=city+' ('+code+')';hideDD('origin');}else{destCode=code;document.getElementById('destInput').value=city+' ('+code+')';hideDD('dest');}}
 function hideDD(field){document.getElementById(field==='origin'?'originDD':'destDD').style.display='none';}
 function swapCities(){const oVal=document.getElementById('originInput').value,dVal=document.getElementById('destInput').value;document.getElementById('originInput').value=dVal;document.getElementById('destInput').value=oVal;const tmp=originCode;originCode=destCode;destCode=tmp;}
@@ -386,7 +352,7 @@ async function buildItinerary(){
 });
 
 app.post("/search", async (req, res) => {
-  const { origin, destination, date, returnDate, pax, tripType, cabinClass } = req.body;
+  const{origin,destination,date,returnDate,pax,tripType,cabinClass}=req.body;
   const cabinMap={economy:1,premium_economy:2,business:3,first:4};
   const cabinLabel={1:"Economy",2:"Premium Economy",3:"Business",4:"First Class"};
   const baggageMap={1:"15kg check-in + 7kg cabin",2:"20kg check-in + 10kg cabin",3:"32kg check-in + 15kg cabin",4:"40kg check-in + 18kg cabin"};
@@ -395,11 +361,11 @@ app.post("/search", async (req, res) => {
   const tripNum=tripType==='round'?1:2;
   try{
     let url="https://serpapi.com/search.json?engine=google_flights&departure_id="+origin+"&arrival_id="+destination+"&outbound_date="+date+"&adults="+pax+"&currency=INR&hl=en&gl=in&type="+tripNum+"&travel_class="+cabinNum+"&api_key="+process.env.SERPAPI_KEY;
-    if(tripType==='round'&&returnDate) url+="&return_date="+returnDate;
+    if(tripType==='round'&&returnDate)url+="&return_date="+returnDate;
     const response=await fetch(url);
     const data=await response.json();
     const rawFlights=data.best_flights||data.other_flights||[];
-    if(!rawFlights.length) return res.status(500).json({error:"No flights found"});
+    if(!rawFlights.length)return res.status(500).json({error:"No flights found"});
     const flights=rawFlights.slice(0,4).map((item,i)=>{
       const leg=item.flights&&item.flights[0];
       const price=item.price||0;
@@ -410,28 +376,31 @@ app.post("/search", async (req, res) => {
 });
 
 app.post("/itinerary", async (req, res) => {
-  const { from, dest, start, end, travellers, budget, style, hotel, notes } = req.body;
-  const days = Math.round((new Date(end) - new Date(start)) / (1000*60*60*24)) + 1;
+  const{from,dest,start,end,travellers,budget,style,hotel,notes}=req.body;
+  const days=Math.round((new Date(end)-new Date(start))/(1000*60*60*24))+1;
 
-  const prompt = `You are a luxury travel planner. Create a ${days}-day trip plan for ${travellers} travellers going from ${from} to ${dest}, ${start} to ${end}, ${budget} budget, ${style} style, ${hotel} accommodation. Special requests: ${notes||'None'}.
+  const prompt=`You are a luxury travel planner. Create a ${days}-day trip for ${travellers} travellers from ${from} to ${dest}, ${start} to ${end}, ${budget} budget, ${style} style, ${hotel} accommodation. Special requests: ${notes||'None'}.
 
-You MUST respond with ONLY a valid JSON object. No text before or after. No markdown. No explanation. Just the raw JSON.
+Respond with ONLY a valid JSON object. No markdown, no explanation, no code fences. Just raw JSON.
 
-Use this exact structure:
-{"summary":"2-3 sentence trip summary","totalBudgetINR":"estimated budget range e.g. Rs.1,50,000 - Rs.2,00,000","days":[{"day":1,"title":"day title","morning":"morning activity with real place name","afternoon":"afternoon activity with real place name","evening":"evening activity with real place name","meals":"restaurant recommendations"}],"hotels":[{"name":"real hotel name","stars":4,"pricePerNightINR":12000,"highlight":"key feature"},{"name":"another real hotel","stars":5,"pricePerNightINR":25000,"highlight":"key feature"}],"cars":[{"type":"Sedan","company":"rental company","pricePerDayINR":3500,"features":"AC, GPS"},{"type":"SUV","company":"company","pricePerDayINR":5500,"features":"7 seater, AC"}],"activities":[{"name":"activity name","duration":"2-3 hours","priceINR":500,"description":"brief description"},{"name":"activity","duration":"half day","priceINR":1200,"description":"description"},{"name":"activity","duration":"full day","priceINR":2000,"description":"description"}],"tips":["tip 1","tip 2","tip 3"]}`;
+{"summary":"2-3 sentence trip summary","totalBudgetINR":"estimated budget e.g. Rs.1,50,000 - Rs.2,00,000","days":[{"day":1,"title":"day title","morning":"morning activity with real place","afternoon":"afternoon activity with real place","evening":"evening activity with real place","meals":"restaurant recommendations"}],"hotels":[{"name":"real hotel name","stars":4,"pricePerNightINR":12000,"highlight":"key feature"},{"name":"real hotel name","stars":5,"pricePerNightINR":25000,"highlight":"key feature"}],"cars":[{"type":"Sedan","company":"rental company","pricePerDayINR":3500,"features":"AC, GPS"},{"type":"SUV","company":"company","pricePerDayINR":5500,"features":"7 seater, AC"}],"activities":[{"name":"activity","duration":"2-3 hours","priceINR":500,"description":"description"},{"name":"activity","duration":"half day","priceINR":1200,"description":"description"},{"name":"activity","duration":"full day","priceINR":2000,"description":"description"}],"tips":["tip 1","tip 2","tip 3"]}`;
 
-  try {
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + process.env.GEMINI_API_KEY,
-      { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.5,maxOutputTokens:2048}}) }
-    );
-    const data = await response.json();
-    console.log("Gemini response:", JSON.stringify(data).substring(0,300));
-    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-    text = text.replace(/```json|```/g,"").trim();
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error("No JSON in response");
-    const itin = JSON.parse(jsonMatch[0]);
+  try{
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},
+      body:JSON.stringify({
+        model:"llama-3.3-70b-versatile",
+        messages:[{role:"system",content:"You are a travel planner. Always respond with valid JSON only. No markdown, no explanation."},{role:"user",content:prompt}],
+        temperature:0.7,
+        max_tokens:2048,
+        response_format:{type:"json_object"}
+      })
+    });
+    const data=await response.json();
+    console.log("Groq response:",JSON.stringify(data).substring(0,200));
+    const text=data.choices?.[0]?.message?.content||"";
+    const itin=JSON.parse(text);
 
     const flightsUrl="https://www.google.com/flights?q=flights+from+"+encodeURIComponent(from)+"+to+"+encodeURIComponent(dest);
     const hotelsUrl="https://www.google.com/travel/hotels/"+encodeURIComponent(dest);
@@ -455,7 +424,7 @@ Use this exact structure:
     html+='<div class="section-card"><div class="section-title">🏨 Hotels</div>';
     itin.hotels.forEach(function(h){
       const stars='★'.repeat(h.stars)+'☆'.repeat(5-h.stars);
-      html+='<div class="hotel-card"><div><div class="hotel-name">'+h.name+'</div><div class="stars">'+stars+'</div><div class="hotel-details" style="margin-top:4px">'+h.highlight+'</div></div><div><div class="hotel-price">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per night</div><a href="'+hotelsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
+      html+='<div class="hotel-card"><div><div class="hotel-name">'+h.name+'</div><div class="stars">'+stars+'</div><div class="hotel-details" style="margin-top:4px">'+h.highlight+'</div></div><div><div style="color:#CBB38E;font-size:16px;font-weight:700">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per night</div><a href="'+hotelsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
     });
     html+='</div>';
     html+='<div class="section-card"><div class="section-title">🚗 Car Rentals</div>';
@@ -476,11 +445,11 @@ Use this exact structure:
     html+='</ul></div></div>';
 
     res.json({html});
-  } catch(err) {
-    console.error("Itinerary error:", err.message);
+  }catch(err){
+    console.error("Groq error:",err.message);
     res.status(500).json({error:"Failed to build itinerary"});
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log("Gleefy running on port " + PORT));
+const PORT=process.env.PORT||3001;
+app.listen(PORT,()=>console.log("Gleefy running on port "+PORT));
