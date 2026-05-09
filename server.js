@@ -19,7 +19,7 @@ h1 { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 40px; font-we
 .tagline { text-align: center; font-size: 11px; color: #6B6560; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px; }
 .wrap { max-width: 750px; margin: 0 auto; padding: 0 18px; }
 .main-tabs { display: flex; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; gap: 0; }
-.main-tab { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 10px 16px; font-size: 10px; font-weight: 700; cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; border-right: none; }
+.main-tab { background: transparent; color: #CBB38E; border: 1px solid #CBB38E; padding: 9px 11px; font-size: 9.5px; font-weight: 700; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; font-family: 'Montserrat', sans-serif; transition: all 0.18s; border-right: none; }
 .main-tab:first-child { border-radius: 6px 0 0 6px; }
 .main-tab:last-child { border-radius: 0 6px 6px 0; border-right: 1px solid #CBB38E; }
 .main-tab.active { background: #CBB38E; color: #000; }
@@ -114,9 +114,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .time-slot { display: flex; gap: 10px; margin-bottom: 8px; }
 .time-badge { background: #1A1A1A; border: 0.5px solid #2A2A2A; color: #CBB38E; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; height: fit-content; margin-top: 2px; }
 .day-content { color: #A09890; font-size: 13px; line-height: 1.7; }
-.hotel-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-.hotel-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.stars { color: #CBB38E; font-size: 12px; }
 .activity-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
 .activity-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .activity-details { color: #6B6560; font-size: 12px; line-height: 1.6; }
@@ -156,7 +153,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .rest-stars { color: #CBB38E; font-size: 14px; margin-bottom: 6px; }
 .rest-body { padding: 0 20px 20px; border-top: 0.5px solid #1A1A1A; }
 .rest-desc { color: #A09890; font-size: 13px; line-height: 1.7; margin: 14px 0 12px; }
-.rest-dist { color: #6B6560; font-size: 12px; margin-bottom: 14px; }
 .menu-title { font-size: 10px; color: #6B6560; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
 .menu-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
 .menu-item { background: #0E0E0E; border-radius: 8px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -168,6 +164,67 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .menu-item-price { color: #CBB38E; font-size: 14px; font-weight: 700; white-space: nowrap; }
 .rest-footer { display: flex; justify-content: space-between; align-items: center; }
 .rest-form { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+.hotel-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+.hotel-card.featured { border-color: #CBB38E; }
+.hotel-header { padding: 18px 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.hotel-name { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 22px; margin-bottom: 4px; }
+.hotel-type { color: #6B6560; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.hotel-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.hotel-tag { background: #1A1A1A; border: 0.5px solid #2A2A2A; color: #A09890; font-size: 10px; padding: 2px 8px; border-radius: 10px; }
+.hotel-tag.gold { border-color: #CBB38E; color: #CBB38E; }
+.hotel-right { text-align: right; flex-shrink: 0; }
+.hotel-price { color: #CBB38E; font-size: 22px; font-weight: 700; }
+.hotel-price-label { color: #6B6560; font-size: 11px; margin-bottom: 4px; }
+.hotel-stars { color: #CBB38E; font-size: 16px; margin-bottom: 4px; }
+.hotel-review { color: #5AA97B; font-size: 12px; font-weight: 600; }
+.hotel-body { padding: 0 20px 20px; border-top: 0.5px solid #1A1A1A; }
+.hotel-desc { color: #A09890; font-size: 13px; line-height: 1.7; margin: 14px 0 12px; }
+.amenities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.amenity { background: #0E0E0E; border-radius: 6px; padding: 8px 10px; font-size: 11px; color: #A09890; text-align: center; }
+.rooms-title { font-size: 10px; color: #6B6560; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.room-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.room-item { background: #0E0E0E; border-radius: 8px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; }
+.room-name { color: #E7E1D7; font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.room-desc { color: #6B6560; font-size: 12px; }
+.room-price { color: #CBB38E; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.hotel-footer { display: flex; justify-content: space-between; align-items: center; }
+.hotel-form { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+.place-card { background: #111; border: 0.5px solid #2A2A2A; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+.place-card.featured { border-color: #CBB38E; }
+.place-card.gem { border-color: #7B6B9E; }
+.place-header { padding: 18px 20px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.place-name { font-family: 'Bodoni Moda', serif; color: #CBB38E; font-size: 20px; margin-bottom: 4px; }
+.place-name.gem-name { color: #B8A9D9; }
+.place-category { color: #6B6560; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.place-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.place-tag { background: #1A1A1A; border: 0.5px solid #2A2A2A; color: #A09890; font-size: 10px; padding: 2px 8px; border-radius: 10px; }
+.place-tag.gold { border-color: #CBB38E; color: #CBB38E; }
+.place-tag.purple { border-color: #7B6B9E; color: #B8A9D9; }
+.place-right { text-align: right; flex-shrink: 0; }
+.place-price { color: #CBB38E; font-size: 16px; font-weight: 700; }
+.place-price-label { color: #6B6560; font-size: 11px; }
+.place-body { padding: 0 20px 20px; border-top: 0.5px solid #1A1A1A; }
+.place-desc { color: #A09890; font-size: 13px; line-height: 1.7; margin: 14px 0 12px; }
+.place-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+.place-info-item { background: #0E0E0E; border-radius: 8px; padding: 12px; }
+.place-info-label { font-size: 9px; color: #6B6560; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+.place-info-value { font-size: 13px; color: #E7E1D7; line-height: 1.5; }
+.insider-tip { background: #0E0E0E; border-left: 2px solid #CBB38E; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 14px; }
+.insider-tip.gem-tip { border-left-color: #7B6B9E; }
+.insider-label { font-size: 9px; color: #CBB38E; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+.insider-label.gem-label { color: #B8A9D9; }
+.insider-text { color: #A09890; font-size: 13px; line-height: 1.6; }
+.place-footer { display: flex; justify-content: space-between; align-items: center; }
+.crowd-bar { display: flex; align-items: center; gap: 8px; }
+.crowd-label { font-size: 11px; color: #6B6560; }
+.crowd-dots { display: flex; gap: 3px; }
+.crowd-dot { width: 8px; height: 8px; border-radius: 50%; background: #2A2A2A; }
+.crowd-dot.active { background: #CBB38E; }
+.crowd-dot.active.busy { background: #E07070; }
+.crowd-dot.active.moderate { background: #CBB38E; }
+.crowd-dot.active.quiet { background: #5AA97B; }
+.gem-bar { background: #7B6B9E22; border: 0.5px solid #7B6B9E; border-radius: 3px; color: #B8A9D9; font-size: 9px; font-weight: 800; padding: 2px 8px; letter-spacing: 0.1em; display: inline-block; margin-bottom: 6px; }
+.place-form { background: #111; border: 0.5px solid #2A2A2A; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
 </style>
 </head>
 <body>
@@ -177,9 +234,12 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 
   <div class="main-tabs">
     <button class="main-tab active" onclick="switchTab('flights')">✈ Flights</button>
+    <button class="main-tab" onclick="switchTab('hotels')">🏨 Hotels</button>
     <button class="main-tab" onclick="switchTab('cars')">🚗 Cars</button>
     <button class="main-tab" onclick="switchTab('restaurants')">🍽️ Restaurants</button>
-    <button class="main-tab" onclick="switchTab('itinerary')">🗺 Plan a Trip</button>
+    <button class="main-tab" onclick="switchTab('sightseeing')">🏛️ Sightseeing</button>
+    <button class="main-tab" onclick="switchTab('gems')">💎 Hidden Gems</button>
+    <button class="main-tab" onclick="switchTab('itinerary')">🗺 Plan Trip</button>
   </div>
 
   <!-- FLIGHTS TAB -->
@@ -241,14 +301,95 @@ input[type="date"] { background: transparent; border: none; outline: none; color
     <div id="flightCarSection" style="display:none">
       <div class="section-card">
         <div class="section-title">🚗 Add a Chauffeur Car at Your Destination</div>
-        <div style="color:#A09890;font-size:13px;margin-bottom:16px">Arriving at your destination? Book a luxury chauffeur car to go with your flight.</div>
+        <div style="color:#A09890;font-size:13px;margin-bottom:16px">Book a luxury chauffeur car to go with your flight.</div>
         <div id="flightCarLoading" style="display:none"><div class="skel"><div class="skel-line" style="height:14px;width:200px;margin-bottom:10px"></div><div class="skel-line" style="height:60px;width:100%"></div></div></div>
         <div id="flightCarResults"></div>
       </div>
     </div>
   </div>
 
-  <!-- LUXURY CARS TAB -->
+  <!-- HOTELS TAB -->
+  <div id="hotelsTab" class="tab-content">
+    <div class="hotel-form">
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">City</label>
+          <input class="itin-input" id="hotelCity" placeholder="e.g. Mumbai, Paris, Dubai">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Hotel Category</label>
+          <select class="itin-select" id="hotelCategory">
+            <option value="all">All Categories</option>
+            <option value="3star">3 Star</option>
+            <option value="4star">4 Star</option>
+            <option value="5star">5 Star</option>
+            <option value="boutique">Boutique Hotel</option>
+            <option value="resort">Luxury Resort</option>
+            <option value="heritage">Heritage Hotel</option>
+            <option value="villa">Private Villa</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Check In</label>
+          <input class="itin-input" type="date" id="hotelCheckin">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Check Out</label>
+          <input class="itin-input" type="date" id="hotelCheckout">
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Guests</label>
+          <input class="itin-input" type="number" id="hotelGuests" value="2" min="1" max="20">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Budget per Night</label>
+          <select class="itin-select" id="hotelBudget">
+            <option value="budget">Budget (Under Rs.3000)</option>
+            <option value="mid">Mid Range (Rs.3000-8000)</option>
+            <option value="luxury" selected>Luxury (Rs.8000-25000)</option>
+            <option value="ultra">Ultra Luxury (Rs.25000+)</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Preferred Location</label>
+          <select class="itin-select" id="hotelLocation">
+            <option value="any">Any Location</option>
+            <option value="city-center">City Center</option>
+            <option value="beachfront">Beachfront</option>
+            <option value="airport">Near Airport</option>
+            <option value="business">Business District</option>
+            <option value="quiet">Quiet Suburbs</option>
+          </select>
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Must Have Amenity</label>
+          <select class="itin-select" id="hotelAmenity">
+            <option value="any">No Preference</option>
+            <option value="pool">Swimming Pool</option>
+            <option value="spa">Spa & Wellness</option>
+            <option value="gym">Fitness Center</option>
+            <option value="restaurant">Fine Dining Restaurant</option>
+            <option value="rooftop">Rooftop Bar</option>
+            <option value="butler">Butler Service</option>
+          </select>
+        </div>
+      </div>
+      <button class="itin-btn" id="hotelSearchBtn" onclick="searchHotels()">Find Hotels</button>
+    </div>
+    <div id="hotelLoading" style="display:none">
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
+    </div>
+    <div id="hotelResults"></div>
+  </div>
+
+  <!-- CARS TAB -->
   <div id="carsTab" class="tab-content">
     <div class="car-form">
       <div class="drive-toggle">
@@ -291,7 +432,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
     </div>
     <div id="carLoading" style="display:none">
       <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:80px;width:100%;margin-bottom:8px"></div></div>
-      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:80px;width:100%"></div></div>
     </div>
     <div id="carResults"></div>
   </div>
@@ -370,10 +510,112 @@ input[type="date"] { background: transparent; border: none; outline: none; color
       <button class="itin-btn" id="restSearchBtn" onclick="searchRestaurants()">Find Restaurants</button>
     </div>
     <div id="restLoading" style="display:none">
-      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:90%"></div></div>
-      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
     </div>
     <div id="restResults"></div>
+  </div>
+
+  <!-- SIGHTSEEING TAB -->
+  <div id="sightseeingTab" class="tab-content">
+    <div class="place-form">
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">City</label>
+          <input class="itin-input" id="sightCity" placeholder="e.g. Paris, Delhi, Tokyo">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Category</label>
+          <select class="itin-select" id="sightCategory">
+            <option value="all">All Categories</option>
+            <option value="history">History & Heritage</option>
+            <option value="art">Art & Culture</option>
+            <option value="nature">Nature & Parks</option>
+            <option value="architecture">Architecture</option>
+            <option value="religious">Religious & Spiritual</option>
+            <option value="museum">Museums</option>
+            <option value="viewpoint">Viewpoints & Panoramas</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Budget</label>
+          <select class="itin-select" id="sightBudget">
+            <option value="free">Free Entry</option>
+            <option value="budget">Budget (Under Rs.500)</option>
+            <option value="mid" selected>Mid (Rs.500-2000)</option>
+            <option value="premium">Premium (Rs.2000+)</option>
+          </select>
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Best Time</label>
+          <select class="itin-select" id="sightTime">
+            <option value="any">Any Time</option>
+            <option value="morning">Morning</option>
+            <option value="afternoon">Afternoon</option>
+            <option value="evening">Evening / Sunset</option>
+            <option value="night">Night</option>
+          </select>
+        </div>
+      </div>
+      <button class="itin-btn" id="sightSearchBtn" onclick="searchPlaces('sightseeing')">Find Sightseeing Spots</button>
+    </div>
+    <div id="sightLoading" style="display:none">
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
+    </div>
+    <div id="sightResults"></div>
+  </div>
+
+  <!-- HIDDEN GEMS TAB -->
+  <div id="gemsTab" class="tab-content">
+    <div class="place-form">
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">City or Region</label>
+          <input class="itin-input" id="gemCity" placeholder="e.g. Paris, Rajasthan, Kyoto">
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Type of Gem</label>
+          <select class="itin-select" id="gemCategory">
+            <option value="all">All Types</option>
+            <option value="cafe">Secret Cafes & Bars</option>
+            <option value="nature">Untouched Nature</option>
+            <option value="art">Street Art & Local Art</option>
+            <option value="history">Forgotten History</option>
+            <option value="food">Local Food Spots</option>
+            <option value="viewpoint">Secret Viewpoints</option>
+            <option value="market">Local Markets</option>
+          </select>
+        </div>
+      </div>
+      <div class="itin-row">
+        <div class="itin-field">
+          <label class="itin-label">Crowd Preference</label>
+          <select class="itin-select" id="gemCrowd">
+            <option value="very-quiet">Very Quiet (almost no tourists)</option>
+            <option value="quiet" selected>Quiet (few tourists)</option>
+            <option value="moderate">Moderate (some locals)</option>
+          </select>
+        </div>
+        <div class="itin-field">
+          <label class="itin-label">Best Time</label>
+          <select class="itin-select" id="gemTime">
+            <option value="any">Any Time</option>
+            <option value="morning">Early Morning</option>
+            <option value="afternoon">Afternoon</option>
+            <option value="evening">Evening</option>
+            <option value="night">Night</option>
+          </select>
+        </div>
+      </div>
+      <button class="itin-btn" id="gemSearchBtn" onclick="searchPlaces('gems')">Discover Hidden Gems</button>
+    </div>
+    <div id="gemLoading" style="display:none">
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
+    </div>
+    <div id="gemResults"></div>
   </div>
 
   <!-- ITINERARY TAB -->
@@ -441,25 +683,21 @@ input[type="date"] { background: transparent; border: none; outline: none; color
       </div>
       <div class="itin-field">
         <label class="itin-label">Special requests or interests</label>
-        <textarea class="itin-textarea" id="itinNotes" placeholder="e.g. vegetarian food, art museums, beach activities..."></textarea>
+        <textarea class="itin-textarea" id="itinNotes" placeholder="e.g. vegetarian food, art museums, hidden gems..."></textarea>
       </div>
       <button class="itin-btn" id="itinBtn" onclick="buildItinerary()">Build My Complete Trip</button>
     </div>
     <div id="itinLoading" style="display:none">
-      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
-      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
     </div>
     <div id="itinResult"></div>
   </div>
 
 </div>
-
 <script>
 const cities=[{city:"Delhi",code:"DEL",country:"India",type:"both"},{city:"Mumbai",code:"BOM",country:"India",type:"both"},{city:"Bangalore",code:"BLR",country:"India",type:"both"},{city:"Goa",code:"GOI",country:"India",type:"both"},{city:"Chennai",code:"MAA",country:"India",type:"both"},{city:"Hyderabad",code:"HYD",country:"India",type:"both"},{city:"Kolkata",code:"CCU",country:"India",type:"both"},{city:"Jaipur",code:"JAI",country:"India",type:"both"},{city:"Pune",code:"PNQ",country:"India",type:"both"},{city:"Ahmedabad",code:"AMD",country:"India",type:"both"},{city:"Paris",code:"CDG",country:"France",type:"international"},{city:"London",code:"LHR",country:"United Kingdom",type:"international"},{city:"Dubai",code:"DXB",country:"UAE",type:"international"},{city:"New York",code:"JFK",country:"USA",type:"international"},{city:"Singapore",code:"SIN",country:"Singapore",type:"international"},{city:"Tokyo",code:"HND",country:"Japan",type:"international"},{city:"Bangkok",code:"BKK",country:"Thailand",type:"international"},{city:"Sydney",code:"SYD",country:"Australia",type:"international"},{city:"Frankfurt",code:"FRA",country:"Germany",type:"international"},{city:"Toronto",code:"YYZ",country:"Canada",type:"international"}];
-
 let mode='domestic',tripType='oneway',cabinClass='economy',originCode='',destCode='',pax=1,driveType='chauffeur';
 let currentDestCity='';
-
 const today=new Date().toISOString().split('T')[0];
 document.getElementById('dateInput').min=today;
 document.getElementById('dateInput').value=today;
@@ -469,13 +707,15 @@ document.getElementById('itinEnd').min=today;
 document.getElementById('carPickup').min=today;
 document.getElementById('carPickup').value=today;
 document.getElementById('carReturn').min=today;
+document.getElementById('hotelCheckin').min=today;
+document.getElementById('hotelCheckin').value=today;
+document.getElementById('hotelCheckout').min=today;
 
 function switchTab(tab){
-  ['flightsTab','carsTab','restaurantsTab','itineraryTab'].forEach(function(id){document.getElementById(id).classList.remove('active');});
+  ['flightsTab','hotelsTab','carsTab','restaurantsTab','sightseeingTab','gemsTab','itineraryTab'].forEach(function(id){document.getElementById(id).classList.remove('active');});
   document.getElementById(tab+'Tab').classList.add('active');
-  document.querySelectorAll('.main-tab').forEach(function(el,i){el.classList.toggle('active',(tab==='flights'&&i===0)||(tab==='cars'&&i===1)||(tab==='restaurants'&&i===2)||(tab==='itinerary'&&i===3));});
+  document.querySelectorAll('.main-tab').forEach(function(el,i){el.classList.toggle('active',(tab==='flights'&&i===0)||(tab==='hotels'&&i===1)||(tab==='cars'&&i===2)||(tab==='restaurants'&&i===3)||(tab==='sightseeing'&&i===4)||(tab==='gems'&&i===5)||(tab==='itinerary'&&i===6));});
 }
-
 function setMode(m){mode=m;originCode='';destCode='';document.getElementById('originInput').value='';document.getElementById('destInput').value='';document.getElementById('domBtn').classList.toggle('active',m==='domestic');document.getElementById('intlBtn').classList.toggle('active',m==='international');document.getElementById('results').innerHTML='';document.getElementById('flightCarSection').style.display='none';}
 function setTrip(t){tripType=t;document.getElementById('oneWayBtn').classList.toggle('active',t==='oneway');document.getElementById('roundBtn').classList.toggle('active',t==='round');document.getElementById('returnCard').classList.toggle('show',t==='round');}
 function setCabin(c){cabinClass=c;['econ','premEcon','biz','first'].forEach(function(id){document.getElementById(id+'Btn').classList.remove('active');});document.getElementById({economy:'econ',premium_economy:'premEcon',business:'biz',first:'first'}[c]+'Btn').classList.add('active');}
@@ -535,7 +775,7 @@ async function loadFlightCars(city,date){
     const resp=await fetch('/cars',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({city,category:'all',pickup:date,ret:date,driveType:'chauffeur'})});
     const data=await resp.json();
     if(data.cars&&data.cars.length)renderCarStrip(data.cars,'flightCarResults');
-  }catch(e){console.log('Car load error');}
+  }catch(e){}
   finally{document.getElementById('flightCarLoading').style.display='none';}
 }
 
@@ -552,8 +792,53 @@ function renderResults(flights,oCity,dCity,date){
   html+='<p class="disclaimer">Prices are indicative. Book Now links to Google Flights.</p>';
   document.getElementById('results').innerHTML=html;
 }
-
 function toggleCard(i){const fd=document.getElementById('fd'+i),ch=document.getElementById('chev'+i);const open=fd.style.display==='block';fd.style.display=open?'none':'block';ch.style.transform=open?'none':'rotate(180deg)';}
+
+async function searchHotels(){
+  const city=document.getElementById('hotelCity').value.trim();
+  if(!city){alert('Please enter a city.');return;}
+  const category=document.getElementById('hotelCategory').value;
+  const checkin=document.getElementById('hotelCheckin').value;
+  const checkout=document.getElementById('hotelCheckout').value;
+  const guests=document.getElementById('hotelGuests').value;
+  const budget=document.getElementById('hotelBudget').value;
+  const location=document.getElementById('hotelLocation').value;
+  const amenity=document.getElementById('hotelAmenity').value;
+  if(!checkin||!checkout){alert('Please select check-in and check-out dates.');return;}
+  const btn=document.getElementById('hotelSearchBtn');
+  btn.disabled=true;btn.textContent='Finding Hotels...';
+  document.getElementById('hotelLoading').style.display='block';
+  document.getElementById('hotelResults').innerHTML='';
+  try{
+    const resp=await fetch('/hotels',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({city,category,checkin,checkout,guests,budget,location,amenity})});
+    const data=await resp.json();
+    if(data.error||!data.hotels||!data.hotels.length){alert('Could not find hotels. Please try again.');return;}
+    renderHotels(data.hotels,city,checkin,checkout,guests);
+  }catch(e){alert('Could not find hotels. Please try again.');}
+  finally{btn.disabled=false;btn.textContent='Find Hotels';document.getElementById('hotelLoading').style.display='none';}
+}
+
+function renderHotels(hotels,city,checkin,checkout,guests){
+  const checkinStr=new Date(checkin+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  const checkoutStr=new Date(checkout+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  const nights=Math.max(1,Math.round((new Date(checkout)-new Date(checkin))/(1000*60*60*24)));
+  let html='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><div><span style="font-size:15px;font-weight:500">Hotels in '+city+'</span><span style="font-size:13px;color:#6B6560;margin-left:10px">'+checkinStr+' — '+checkoutStr+' · '+nights+' night'+(nights>1?'s':'')+' · '+guests+' guest'+(guests>1?'s':'')+'</span></div><span style="font-size:13px;color:#6B6560">'+hotels.length+' options</span></div>';
+  hotels.forEach(function(h,i){
+    const stars='★'.repeat(h.stars)+'☆'.repeat(5-h.stars);
+    const total=h.pricePerNight*nights;
+    const bookUrl='https://www.google.com/travel/hotels/'+encodeURIComponent(city)+'?q='+encodeURIComponent(h.name);
+    html+='<div class="hotel-card'+(i===0?' featured':'')+'">';
+    html+='<div class="hotel-header"><div>'+(i===0?'<div class="featured-bar">TOP PICK</div><br>':'')+'<div class="hotel-name">'+h.name+'</div><div class="hotel-type">'+h.type+'</div><div class="hotel-tags"><span class="hotel-tag">📍 '+h.location+'</span><span class="hotel-tag">'+h.distanceFromCenter+'</span>'+(h.topAmenity?'<span class="hotel-tag gold">✦ '+h.topAmenity+'</span>':'')+'</div></div><div class="hotel-right"><div class="hotel-stars">'+stars+'</div><div class="hotel-price">Rs.'+h.pricePerNight.toLocaleString('en-IN')+'</div><div class="hotel-price-label">per night</div><div class="hotel-review">⭐ '+h.reviewScore+'/10 · '+h.reviewCount+' reviews</div></div></div>';
+    html+='<div class="hotel-body"><div class="hotel-desc">'+h.description+'</div><div class="hotel-dist" style="color:#6B6560;font-size:12px;margin-bottom:14px">📍 '+h.address+' · '+h.distanceFromCenter+' from city center</div>';
+    html+='<div style="font-size:10px;color:#6B6560;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">🏊 Amenities</div><div class="amenities-grid">';
+    h.amenities.forEach(function(a){html+='<div class="amenity">'+a+'</div>';});
+    html+='</div><div class="rooms-title">🛏️ Room Types</div><div class="room-items">';
+    h.rooms.forEach(function(r){html+='<div class="room-item"><div><div class="room-name">'+r.type+'</div><div class="room-desc">'+r.description+'</div></div><div class="room-price">Rs.'+r.pricePerNight.toLocaleString('en-IN')+'/night</div></div>';});
+    html+='</div><div class="hotel-footer"><div style="color:#6B6560;font-size:13px;font-weight:600">'+nights+' nights total: Rs.'+total.toLocaleString('en-IN')+'</div><a href="'+bookUrl+'" target="_blank" class="book-btn">Book on Google Hotels</a></div></div></div>';
+  });
+  html+='<p class="disclaimer">Prices are indicative. Book Now links to Google Hotels.</p>';
+  document.getElementById('hotelResults').innerHTML=html;
+}
 
 async function searchCars(){
   const city=document.getElementById('carCity').value;
@@ -583,11 +868,11 @@ function renderFullCars(cars,city,pickup,ret){
     const total=c.pricePerDay*days;
     const bookUrl='https://www.google.com/search?q='+encodeURIComponent(c.brand+' '+c.model+' chauffeur '+city);
     html+='<div class="car-strip" style="'+(i===0?'border-color:#CBB38E;':'')+'">';
-    html+='<div class="car-strip-left">'+(i===0?'<div class="featured-bar">FEATURED</div><br>':'')+'<div class="car-strip-model">'+c.model+'</div><div class="car-strip-brand">'+c.brand+'</div><div class="car-strip-tags"><span class="car-tag">'+c.category+'</span><span class="car-tag">'+c.seats+' Seats</span><span class="car-tag">'+c.transmission+'</span><span class="car-tag">'+c.fuel+'</span>'+(c.chauffeur?'<span class="car-tag gold">👤 Chauffeur Available</span>':'')+'</div><div class="car-strip-desc">'+c.description+'</div><div class="car-strip-cities">';
+    html+='<div class="car-strip-left">'+(i===0?'<div class="featured-bar">FEATURED</div><br>':'')+'<div class="car-strip-model">'+c.model+'</div><div class="car-strip-brand">'+c.brand+'</div><div class="car-strip-tags"><span class="car-tag">'+c.category+'</span><span class="car-tag">'+c.seats+' Seats</span><span class="car-tag">'+c.transmission+'</span><span class="car-tag">'+c.fuel+'</span>'+(c.chauffeur?'<span class="car-tag gold">👤 Chauffeur</span>':'')+'</div><div class="car-strip-desc">'+c.description+'</div><div class="car-strip-cities">';
     c.cities.forEach(function(ct){html+='<span class="city-dot">'+ct+'</span>';});
     html+='</div></div><div class="car-strip-right"><div class="car-strip-price">Rs.'+c.pricePerDay.toLocaleString('en-IN')+'</div><div class="car-strip-label">per day</div><div style="color:#CBB38E;font-size:13px;font-weight:600;margin-bottom:8px">Rs.'+total.toLocaleString('en-IN')+' total</div><a href="'+bookUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 14px">Book Now</a></div></div>';
   });
-  html+='<p class="disclaimer">Prices are indicative. Book Now searches live availability.</p>';
+  html+='<p class="disclaimer">Prices are indicative.</p>';
   document.getElementById('carResults').innerHTML=html;
 }
 
@@ -619,20 +904,75 @@ function renderRestaurants(restaurants,city){
     const mapsUrl='https://www.google.com/maps/search/'+encodeURIComponent(r.name+' '+city);
     html+='<div class="rest-card'+(i===0?' featured':'')+'">';
     html+='<div class="rest-header"><div>'+(i===0?'<div class="featured-bar">TOP PICK</div><br>':'')+'<div class="rest-name">'+r.name+'</div><div class="rest-cuisine">'+r.cuisine+'</div><div class="rest-tags"><span class="rest-tag">'+r.ambience+'</span><span class="rest-tag">'+r.distance+'</span>'+(r.dietary&&r.dietary!=='none'?'<span class="rest-tag gold">'+r.dietary+'</span>':'')+'</div></div><div class="rest-right"><div class="rest-stars">'+stars+'</div><div class="rest-price">'+r.priceRange+'</div><div class="rest-price-label">avg per person</div></div></div>';
-    html+='<div class="rest-body"><div class="rest-desc">'+r.description+'</div><div class="rest-dist">📍 '+r.address+' · '+r.distance+' from city center</div>';
-    html+='<div class="menu-title">🍴 Signature Dishes</div>';
-    html+='<div class="menu-items">';
-    r.menuItems.forEach(function(m){
-      html+='<div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">'+m.name+'</div><div class="menu-item-desc">'+m.description+'</div>';
-      if(m.tags&&m.tags.length)html+='<div class="menu-item-tags">'+m.tags.map(function(t){return'<span class="menu-item-tag">'+t+'</span>';}).join('')+'</div>';
-      html+='</div><div class="menu-item-price">Rs.'+m.price.toLocaleString('en-IN')+'</div></div>';
-    });
+    html+='<div class="rest-body"><div class="rest-desc">'+r.description+'</div><div style="color:#6B6560;font-size:12px;margin-bottom:14px">📍 '+r.address+' · '+r.distance+' from city center</div>';
+    html+='<div class="menu-title">🍴 Signature Dishes</div><div class="menu-items">';
+    r.menuItems.forEach(function(m){html+='<div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">'+m.name+'</div><div class="menu-item-desc">'+m.description+'</div>'+(m.tags&&m.tags.length?'<div class="menu-item-tags">'+m.tags.map(function(t){return'<span class="menu-item-tag">'+t+'</span>';}).join('')+'</div>':'')+'</div><div class="menu-item-price">Rs.'+m.price.toLocaleString('en-IN')+'</div></div>';});
+    html+='</div><div class="rest-footer"><div style="color:#6B6560;font-size:12px">⏰ '+r.openHours+'</div><a href="'+mapsUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div></div></div>';
+  });
+  html+='<p class="disclaimer">Suggestions are AI-generated. Please verify before visiting.</p>';
+  document.getElementById('restResults').innerHTML=html;
+}
+
+async function searchPlaces(type){
+  const isGem=type==='gems';
+  const city=document.getElementById(isGem?'gemCity':'sightCity').value.trim();
+  if(!city){alert('Please enter a city.');return;}
+  const category=document.getElementById(isGem?'gemCategory':'sightCategory').value;
+  const budget=isGem?'any':document.getElementById('sightBudget').value;
+  const time=document.getElementById(isGem?'gemTime':'sightTime').value;
+  const crowd=isGem?document.getElementById('gemCrowd').value:'any';
+  const loadId=isGem?'gemLoading':'sightLoading';
+  const resId=isGem?'gemResults':'sightResults';
+  const btnId=isGem?'gemSearchBtn':'sightSearchBtn';
+  const btn=document.getElementById(btnId);
+  btn.disabled=true;btn.textContent=isGem?'Discovering Gems...':'Finding Spots...';
+  document.getElementById(loadId).style.display='block';
+  document.getElementById(resId).innerHTML='';
+  try{
+    const resp=await fetch('/places',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({city,category,budget,time,crowd,type})});
+    const data=await resp.json();
+    if(data.error||!data.places||!data.places.length){alert('Could not find places. Please try again.');return;}
+    renderPlaces(data.places,city,type,resId);
+  }catch(e){alert('Could not find places. Please try again.');}
+  finally{btn.disabled=false;btn.textContent=isGem?'Discover Hidden Gems':'Find Sightseeing Spots';document.getElementById(loadId).style.display='none';}
+}
+
+function getCrowdDots(level){
+  const levels={low:1,quiet:1,moderate:2,busy:3,high:3,'very-busy':3};
+  const filled=levels[level.toLowerCase()]||2;
+  const type=filled===1?'quiet':filled===2?'moderate':'busy';
+  let dots='';
+  for(let i=0;i<3;i++)dots+='<div class="crowd-dot'+(i<filled?' active '+type:'')+'"></div>';
+  return dots;
+}
+
+function renderPlaces(places,city,type,resId){
+  const isGem=type==='gems';
+  let html='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><span style="font-size:15px;font-weight:500">'+(isGem?'💎 Hidden Gems':'🏛️ Sightseeing')+' in '+city+'</span><span style="font-size:13px;color:#6B6560">'+places.length+' places</span></div>';
+  places.forEach(function(p,i){
+    const mapsUrl='https://www.google.com/maps/search/'+encodeURIComponent(p.name+' '+city);
+    html+='<div class="place-card'+(i===0?(isGem?' gem':' featured'):'')+'">';
+    html+='<div class="place-header"><div>';
+    if(isGem)html+='<div class="gem-bar">HIDDEN GEM</div><br>';
+    else if(i===0)html+='<div class="featured-bar">MUST VISIT</div><br>';
+    html+='<div class="place-name'+(isGem?' gem-name':'')+'">'+p.name+'</div>';
+    html+='<div class="place-category">'+p.category+'</div>';
+    html+='<div class="place-tags"><span class="place-tag">'+p.distanceFromCenter+'</span><span class="place-tag '+(isGem?'purple':'gold')+'">⏰ '+p.bestTime+'</span></div>';
+    html+='</div><div class="place-right"><div style="color:#CBB38E;font-size:16px;font-weight:700">'+p.entryPrice+'</div><div style="color:#6B6560;font-size:11px">entry</div></div></div>';
+    html+='<div class="place-body">';
+    html+='<div class="place-desc">'+p.description+'</div>';
+    html+='<div class="place-info-grid">';
+    html+='<div class="place-info-item"><div class="place-info-label">📍 Distance</div><div class="place-info-value">'+p.distanceFromCenter+' from center</div></div>';
+    html+='<div class="place-info-item"><div class="place-info-label">⏰ Best Time</div><div class="place-info-value">'+p.bestTime+'</div></div>';
+    html+='<div class="place-info-item"><div class="place-info-label">⏱ Duration</div><div class="place-info-value">'+p.duration+'</div></div>';
+    html+='<div class="place-info-item"><div class="place-info-label">🏷️ Category</div><div class="place-info-value">'+p.category+'</div></div>';
     html+='</div>';
-    html+='<div class="rest-footer"><div style="color:#6B6560;font-size:12px">⏰ '+r.openHours+'</div><a href="'+mapsUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div>';
+    html+='<div class="insider-tip'+(isGem?' gem-tip':'')+'"><div class="insider-label'+(isGem?' gem-label':'')+'">'+(isGem?'💎 Insider Secret':'💡 Insider Tip')+'</div><div class="insider-text">'+p.insiderTip+'</div></div>';
+    html+='<div class="place-footer"><div class="crowd-bar"><span class="crowd-label">Crowd Level:</span><div class="crowd-dots">'+getCrowdDots(p.crowdLevel)+'</div><span style="font-size:11px;color:#6B6560;margin-left:4px">'+p.crowdLevel+'</span></div><a href="'+mapsUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div>';
     html+='</div></div>';
   });
-  html+='<p class="disclaimer">Restaurant suggestions are AI-generated. Please verify details before visiting.</p>';
-  document.getElementById('restResults').innerHTML=html;
+  html+='<p class="disclaimer">Suggestions are AI-generated. Please verify before visiting.</p>';
+  document.getElementById(resId).innerHTML=html;
 }
 
 async function buildItinerary(){
@@ -687,13 +1027,28 @@ app.post("/search", async (req, res) => {
   }catch(err){console.error(err);res.status(500).json({error:"Failed"});}
 });
 
+app.post("/hotels", async (req, res) => {
+  const{city,category,checkin,checkout,guests,budget,location,amenity}=req.body;
+  const budgetLabel={budget:"budget under Rs.3000",mid:"mid-range Rs.3000-8000",luxury:"luxury Rs.8000-25000",ultra:"ultra luxury Rs.25000+"}[budget]||"luxury";
+  const nights=Math.max(1,Math.round((new Date(checkout)-new Date(checkin))/(1000*60*60*24)));
+  const prompt=`Luxury hotel expert. 5 hotels for ${city}. category=${category}, budget=${budgetLabel}, location=${location}, amenity=${amenity}, guests=${guests}, ${nights} nights.
+Respond ONLY valid JSON: {"hotels":[{"name":"real hotel","type":"5 Star Hotel","stars":5,"pricePerNight":15000,"reviewScore":9.2,"reviewCount":"1,245","address":"area","distanceFromCenter":"1.2km","location":"City Center","topAmenity":"Infinity Pool","description":"2 sentence description","amenities":["Pool","Spa","Gym","Fine Dining","Concierge","Valet","Butler","Rooftop"],"rooms":[{"type":"Deluxe Room","description":"City view king bed","pricePerNight":12000},{"type":"Premier Suite","description":"Panoramic views","pricePerNight":18000},{"type":"Presidential Suite","description":"Private terrace","pricePerNight":45000}]}]}
+Use real hotel names in ${city}. Generate 5 hotels.`;
+  try{
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Luxury hotel expert. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:2500,response_format:{type:"json_object"}})});
+    const data=await response.json();
+    const result=JSON.parse(data.choices?.[0]?.message?.content||"{}");
+    res.json({hotels:result.hotels||[]});
+  }catch(err){console.error(err.message);res.status(500).json({error:"Failed"});}
+});
+
 app.post("/cars", async (req, res) => {
   const{city,category,pickup,ret,driveType}=req.body;
-  const driveInstruction=driveType==='chauffeur'?'Only chauffeur-driven cars, chauffeur:true for all.':'Mix of chauffeur and self-drive.';
-  const prompt=`Luxury car rental expert. Generate 5 luxury cars for ${city}, category: ${category}. ${driveInstruction}
-Respond ONLY valid JSON: {"cars":[{"brand":"Mercedes-Benz","model":"S-Class","category":"Luxury Sedan","pricePerDay":15000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"Pinnacle of luxury with chauffeur","cities":["Mumbai","Delhi"]},{"brand":"Rolls-Royce","model":"Ghost","category":"Ultra Luxury","pricePerDay":85000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"Ultimate luxury experience","cities":["Mumbai","Delhi"]},{"brand":"BMW","model":"7 Series","category":"Luxury Sedan","pricePerDay":12000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"Executive luxury sedan","cities":["Mumbai","Delhi","Bangalore"]},{"brand":"Range Rover","model":"Autobiography","category":"Luxury SUV","pricePerDay":18000,"seats":"5","transmission":"Automatic","fuel":"Diesel","chauffeur":true,"description":"Supreme luxury SUV","cities":["Mumbai","Delhi","Goa"]},{"brand":"Mercedes-Benz","model":"V-Class","category":"Luxury Van","pricePerDay":14000,"seats":"7","transmission":"Automatic","fuel":"Diesel","chauffeur":true,"description":"Spacious luxury van for groups","cities":["Mumbai","Delhi","Bangalore"]}]}`;
+  const driveInstruction=driveType==='chauffeur'?'Only chauffeur cars, chauffeur:true all.':'Mix chauffeur and self-drive.';
+  const prompt=`5 luxury cars for ${city}, category=${category}. ${driveInstruction}
+Respond ONLY valid JSON: {"cars":[{"brand":"Mercedes-Benz","model":"S-Class","category":"Luxury Sedan","pricePerDay":15000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"desc","cities":["Mumbai","Delhi"]},{"brand":"Rolls-Royce","model":"Ghost","category":"Ultra Luxury","pricePerDay":85000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"desc","cities":["Mumbai","Delhi"]},{"brand":"BMW","model":"7 Series","category":"Luxury Sedan","pricePerDay":12000,"seats":"4","transmission":"Automatic","fuel":"Petrol","chauffeur":true,"description":"desc","cities":["Mumbai","Delhi","Bangalore"]},{"brand":"Range Rover","model":"Autobiography","category":"Luxury SUV","pricePerDay":18000,"seats":"5","transmission":"Automatic","fuel":"Diesel","chauffeur":true,"description":"desc","cities":["Mumbai","Delhi","Goa"]},{"brand":"Mercedes-Benz","model":"V-Class","category":"Luxury Van","pricePerDay":14000,"seats":"7","transmission":"Automatic","fuel":"Diesel","chauffeur":true,"description":"desc","cities":["Mumbai","Delhi"]}]}`;
   try{
-    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Luxury car rental expert. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:1500,response_format:{type:"json_object"}})});
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Car expert. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:1500,response_format:{type:"json_object"}})});
     const data=await response.json();
     const result=JSON.parse(data.choices?.[0]?.message?.content||"{}");
     res.json({cars:result.cars||[]});
@@ -702,32 +1057,49 @@ Respond ONLY valid JSON: {"cars":[{"brand":"Mercedes-Benz","model":"S-Class","ca
 
 app.post("/restaurants", async (req, res) => {
   const{city,cuisine,budget,ambience,diet,dist}=req.body;
-  const budgetLabel={budget:"budget under Rs.500 per person",mid:"mid-range Rs.500-2000 per person",fine:"fine dining Rs.2000-5000 per person",luxury:"ultra luxury Rs.5000+ per person"}[budget]||"mid-range";
-  const prompt=`You are a luxury travel dining expert. Generate 5 restaurant suggestions for ${city}.
-Filters: cuisine=${cuisine}, budget=${budgetLabel}, ambience=${ambience}, dietary=${diet}, distance=${dist}.
-
-Respond ONLY with valid JSON. No markdown.
-
-{"restaurants":[{"name":"real restaurant name","cuisine":"cuisine type","rating":4.5,"ambience":"Romantic","address":"specific area or street","distance":"0.5km","dietary":"Vegetarian Friendly","priceRange":"Rs.1500","openHours":"12pm - 11pm","description":"2 sentence description of the restaurant atmosphere and specialty","menuItems":[{"name":"dish name","description":"brief dish description","price":850,"tags":["Chef Special","Vegetarian"]},{"name":"dish name","description":"brief dish description","price":1200,"tags":["Must Try"]},{"name":"dish name","description":"brief dish description","price":650,"tags":["House Specialty"]}]}]}
-
-Generate 5 restaurants. Use real restaurant names that actually exist in ${city}. Make menu items realistic with accurate prices. Tags can be: Chef Special, Must Try, House Specialty, Vegetarian, Vegan, Gluten Free, Seasonal, Award Winning.`;
-
+  const budgetLabel={budget:"under Rs.500",mid:"Rs.500-2000",fine:"Rs.2000-5000",luxury:"Rs.5000+"}[budget]||"mid-range";
+  const prompt=`5 restaurants for ${city}. cuisine=${cuisine}, budget=${budgetLabel}, ambience=${ambience}, dietary=${diet}, distance=${dist}.
+Respond ONLY valid JSON: {"restaurants":[{"name":"real restaurant","cuisine":"cuisine","rating":4.5,"ambience":"Romantic","address":"area","distance":"0.5km","dietary":"Vegetarian","priceRange":"Rs.1500","openHours":"12pm-11pm","description":"2 sentences","menuItems":[{"name":"dish","description":"desc","price":850,"tags":["Chef Special"]},{"name":"dish","description":"desc","price":1200,"tags":["Must Try"]},{"name":"dish","description":"desc","price":650,"tags":["House Specialty"]}]}]}
+Use real restaurant names in ${city}. Generate 5.`;
   try{
-    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"You are a dining expert. Always respond with valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:2000,response_format:{type:"json_object"}})});
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Dining expert. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:2000,response_format:{type:"json_object"}})});
     const data=await response.json();
     const result=JSON.parse(data.choices?.[0]?.message?.content||"{}");
     res.json({restaurants:result.restaurants||[]});
-  }catch(err){console.error("Restaurant error:",err.message);res.status(500).json({error:"Failed"});}
+  }catch(err){console.error(err.message);res.status(500).json({error:"Failed"});}
+});
+
+app.post("/places", async (req, res) => {
+  const{city,category,budget,time,crowd,type}=req.body;
+  const isGem=type==='gems';
+  const prompt=isGem
+    ? `You are a local travel expert specialising in hidden gems. Generate 5 hidden gems for ${city}. Type=${category}, crowd=${crowd}, best time=${time}.
+
+These must be genuinely lesser-known places that most tourists never find. Not famous landmarks.
+
+Respond ONLY valid JSON: {"places":[{"name":"real place name","category":"Secret Cafe","description":"2-3 sentence description of why this is special and hidden","distanceFromCenter":"2.3km","bestTime":"Early morning before 8am","duration":"1-2 hours","entryPrice":"Free","crowdLevel":"Quiet","insiderTip":"Very specific local insider tip that only a local would know - where to sit, what to order, which entrance to use etc"}]}
+Generate exactly 5 hidden gems in ${city}. Make them genuinely obscure and special.`
+    : `You are a travel expert. Generate 5 famous sightseeing spots for ${city}. Category=${category}, budget=${budget}, best time=${time}.
+
+Respond ONLY valid JSON: {"places":[{"name":"real landmark name","category":"History & Heritage","description":"2-3 sentence description of this landmark and why it is unmissable","distanceFromCenter":"1.5km","bestTime":"Early morning 8-10am","duration":"2-3 hours","entryPrice":"Rs.600","crowdLevel":"Busy","insiderTip":"Practical tip to make the most of the visit - skip the queue, best photo spot, least crowded time etc"}]}
+Generate exactly 5 sightseeing spots in ${city}. Use real famous landmarks.`;
+
+  try{
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Travel expert. Valid JSON only."},{role:"user",content:prompt}],temperature:0.8,max_tokens:2000,response_format:{type:"json_object"}})});
+    const data=await response.json();
+    const result=JSON.parse(data.choices?.[0]?.message?.content||"{}");
+    res.json({places:result.places||[]});
+  }catch(err){console.error("Places error:",err.message);res.status(500).json({error:"Failed"});}
 });
 
 app.post("/itinerary", async (req, res) => {
   const{from,dest,start,end,travellers,budget,style,hotel,notes}=req.body;
   const days=Math.round((new Date(end)-new Date(start))/(1000*60*60*24))+1;
-  const prompt=`Luxury travel planner. ${days}-day trip for ${travellers} from ${from} to ${dest}, ${start} to ${end}, ${budget} budget, ${style} style, ${hotel} accommodation. Notes: ${notes||'None'}.
-Respond ONLY valid JSON: {"summary":"summary","totalBudgetINR":"Rs.X - Rs.Y","days":[{"day":1,"title":"title","morning":"activity","afternoon":"activity","evening":"activity","meals":"restaurants"}],"hotels":[{"name":"hotel","stars":4,"pricePerNightINR":12000,"highlight":"feature"},{"name":"hotel","stars":5,"pricePerNightINR":25000,"highlight":"feature"}],"cars":[{"brand":"Mercedes-Benz","model":"E-Class","category":"Luxury Sedan","pricePerDay":8000,"seats":"4","chauffeur":true,"description":"desc"},{"brand":"BMW","model":"5 Series","category":"Luxury Sedan","pricePerDay":6500,"seats":"4","chauffeur":true,"description":"desc"},{"brand":"Toyota","model":"Innova","category":"MPV","pricePerDay":4500,"seats":"7","chauffeur":true,"description":"desc"}],"restaurants":[{"name":"restaurant","cuisine":"cuisine","rating":4.5,"ambience":"Romantic","priceRange":"Rs.2000","description":"description","menuItems":[{"name":"dish","description":"desc","price":800,"tags":["Must Try"]},{"name":"dish","description":"desc","price":600,"tags":["Chef Special"]},{"name":"dish","description":"desc","price":400,"tags":["House Specialty"]}]},{"name":"restaurant","cuisine":"cuisine","rating":4.2,"ambience":"Casual","priceRange":"Rs.1000","description":"description","menuItems":[{"name":"dish","description":"desc","price":500,"tags":["Must Try"]},{"name":"dish","description":"desc","price":400,"tags":[]},{"name":"dish","description":"desc","price":300,"tags":["Vegetarian"]}]}],"activities":[{"name":"activity","duration":"2 hours","priceINR":500,"description":"desc"},{"name":"activity","duration":"half day","priceINR":1200,"description":"desc"},{"name":"activity","duration":"full day","priceINR":2000,"description":"desc"}],"tips":["tip 1","tip 2","tip 3"]}`;
+  const prompt=`Luxury travel planner. ${days}-day trip for ${travellers} from ${from} to ${dest}, ${start} to ${end}, ${budget} budget, ${style} style, ${hotel}. Notes: ${notes||'None'}.
+Respond ONLY valid JSON: {"summary":"summary","totalBudgetINR":"Rs.X-Rs.Y","days":[{"day":1,"title":"title","morning":"activity","afternoon":"activity","evening":"activity","meals":"restaurants"}],"hotels":[{"name":"hotel","stars":4,"pricePerNightINR":12000,"highlight":"feature","reviewScore":8.9,"distanceFromCenter":"1km","amenities":["Pool","Spa","Restaurant"],"rooms":[{"type":"Deluxe","description":"desc","pricePerNight":12000},{"type":"Suite","description":"desc","pricePerNight":22000}]},{"name":"hotel","stars":5,"pricePerNightINR":25000,"highlight":"feature","reviewScore":9.4,"distanceFromCenter":"0.5km","amenities":["Infinity Pool","Butler","Fine Dining"],"rooms":[{"type":"Premier","description":"desc","pricePerNight":25000},{"type":"Presidential","description":"desc","pricePerNight":65000}]}],"cars":[{"brand":"Mercedes-Benz","model":"E-Class","category":"Luxury Sedan","pricePerDay":8000,"seats":"4","chauffeur":true,"description":"desc"},{"brand":"BMW","model":"5 Series","category":"Luxury Sedan","pricePerDay":6500,"seats":"4","chauffeur":true,"description":"desc"}],"restaurants":[{"name":"restaurant","cuisine":"cuisine","rating":4.5,"ambience":"Romantic","priceRange":"Rs.2000","description":"desc","menuItems":[{"name":"dish","description":"desc","price":800,"tags":["Must Try"]},{"name":"dish","description":"desc","price":600,"tags":["Chef Special"]},{"name":"dish","description":"desc","price":400,"tags":["House Specialty"]}]},{"name":"restaurant","cuisine":"cuisine","rating":4.2,"ambience":"Casual","priceRange":"Rs.1000","description":"desc","menuItems":[{"name":"dish","description":"desc","price":500,"tags":[]},{"name":"dish","description":"desc","price":400,"tags":[]},{"name":"dish","description":"desc","price":300,"tags":["Vegetarian"]}]}],"sightseeing":[{"name":"landmark","category":"History","description":"desc","distanceFromCenter":"1km","bestTime":"Morning","duration":"2 hours","entryPrice":"Rs.500","crowdLevel":"Busy","insiderTip":"tip"},{"name":"landmark","category":"Art","description":"desc","distanceFromCenter":"2km","bestTime":"Afternoon","duration":"1.5 hours","entryPrice":"Free","crowdLevel":"Moderate","insiderTip":"tip"},{"name":"landmark","category":"Nature","description":"desc","distanceFromCenter":"5km","bestTime":"Sunset","duration":"1 hour","entryPrice":"Free","crowdLevel":"Quiet","insiderTip":"tip"}],"hiddenGems":[{"name":"hidden place","category":"Secret Cafe","description":"desc","distanceFromCenter":"3km","bestTime":"Evening","duration":"1 hour","entryPrice":"Free","crowdLevel":"Quiet","insiderTip":"very specific local tip"},{"name":"hidden place","category":"Viewpoint","description":"desc","distanceFromCenter":"4km","bestTime":"Sunrise","duration":"30 mins","entryPrice":"Free","crowdLevel":"Very Quiet","insiderTip":"specific tip"}],"activities":[{"name":"activity","duration":"2 hours","priceINR":500,"description":"desc"},{"name":"activity","duration":"half day","priceINR":1200,"description":"desc"},{"name":"activity","duration":"full day","priceINR":2000,"description":"desc"}],"tips":["tip 1","tip 2","tip 3"]}`;
 
   try{
-    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Travel planner. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:2500,response_format:{type:"json_object"}})});
+    const response=await fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+process.env.GROQ_API_KEY},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Travel planner. Valid JSON only."},{role:"user",content:prompt}],temperature:0.7,max_tokens:3500,response_format:{type:"json_object"}})});
     const data=await response.json();
     const itin=JSON.parse(data.choices?.[0]?.message?.content||"{}");
 
@@ -735,31 +1107,35 @@ Respond ONLY valid JSON: {"summary":"summary","totalBudgetINR":"Rs.X - Rs.Y","da
     const hotelsUrl="https://www.google.com/travel/hotels/"+encodeURIComponent(dest);
     const mapsUrl="https://www.google.com/maps/search/"+encodeURIComponent(dest);
 
+    function crowdDots(level){const levels={low:1,quiet:1,moderate:2,busy:3,high:3};const filled=levels[(level||'').toLowerCase()]||2;const type=filled===1?'quiet':filled===2?'moderate':'busy';let d='';for(let i=0;i<3;i++)d+='<div class="crowd-dot'+(i<filled?' active '+type:'')+'"></div>';return d;}
+
     let html='<div>';
     html+='<div class="section-card"><div style="font-family:Bodoni Moda,serif;color:#CBB38E;font-size:26px;margin-bottom:8px">'+dest+' — '+days+' Day Trip</div><div class="trip-summary">'+itin.summary+'</div><div class="summary-grid"><div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">'+days+' Days</div></div><div class="summary-item"><div class="summary-label">Travellers</div><div class="summary-value">'+travellers+'</div></div><div class="summary-item"><div class="summary-label">Est. Budget</div><div class="summary-value" style="font-size:13px">'+itin.totalBudgetINR+'</div></div></div></div>';
-    html+='<div class="section-card"><div class="section-title">✈️ Flights</div><div style="color:#A09890;font-size:13px;margin-bottom:12px">Search and book flights for your trip dates</div><a href="'+flightsUrl+'" target="_blank" class="book-btn">Search Flights on Google</a></div>';
+    html+='<div class="section-card"><div class="section-title">✈️ Flights</div><div style="color:#A09890;font-size:13px;margin-bottom:12px">Search and book flights for your trip</div><a href="'+flightsUrl+'" target="_blank" class="book-btn">Search Flights on Google</a></div>';
     html+='<div class="section-card"><div class="section-title">🗓️ Day by Day Itinerary</div>';
     itin.days.forEach(function(d){html+='<div class="day-card"><div class="day-title">Day '+d.day+' — '+d.title+'</div><div class="time-slot"><span class="time-badge">Morning</span><span class="day-content">'+d.morning+'</span></div><div class="time-slot"><span class="time-badge">Afternoon</span><span class="day-content">'+d.afternoon+'</span></div><div class="time-slot"><span class="time-badge">Evening</span><span class="day-content">'+d.evening+'</span></div><div style="margin-top:8px;color:#6B6560;font-size:12px">🍽️ '+d.meals+'</div></div>';});
     html+='</div>';
+
     html+='<div class="section-card"><div class="section-title">🏨 Hotels</div>';
-    itin.hotels.forEach(function(h){const stars='★'.repeat(h.stars)+'☆'.repeat(5-h.stars);html+='<div class="hotel-card"><div><div class="hotel-name">'+h.name+'</div><div class="stars">'+stars+'</div><div style="color:#6B6560;font-size:12px;margin-top:4px">'+h.highlight+'</div></div><div style="text-align:right"><div style="color:#CBB38E;font-size:16px;font-weight:700">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per night</div><a href="'+hotelsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';});
+    if(itin.hotels)itin.hotels.forEach(function(h,i){const stars='★'.repeat(h.stars)+'☆'.repeat(5-h.stars);const bookUrl='https://www.google.com/travel/hotels/'+encodeURIComponent(dest)+'?q='+encodeURIComponent(h.name);html+='<div class="hotel-card'+(i===0?' featured':'')+'">';html+='<div class="hotel-header"><div>'+(i===0?'<div class="featured-bar">RECOMMENDED</div><br>':'')+'<div class="hotel-name">'+h.name+'</div><div class="hotel-tags"><span class="hotel-tag">📍 '+h.distanceFromCenter+'</span></div></div><div class="hotel-right"><div class="hotel-stars">'+stars+'</div><div class="hotel-price">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div class="hotel-price-label">per night</div><div class="hotel-review">⭐ '+h.reviewScore+'/10</div></div></div>';html+='<div class="hotel-body"><div class="hotel-desc">'+h.highlight+'</div>';if(h.amenities){html+='<div style="font-size:10px;color:#6B6560;text-transform:uppercase;letter-spacing:0.1em;margin:12px 0 8px">🏊 Amenities</div><div class="amenities-grid">';h.amenities.forEach(function(a){html+='<div class="amenity">'+a+'</div>';});html+='</div>';}if(h.rooms){html+='<div class="rooms-title">🛏️ Room Types</div><div class="room-items">';h.rooms.forEach(function(r){html+='<div class="room-item"><div><div class="room-name">'+r.type+'</div><div class="room-desc">'+r.description+'</div></div><div class="room-price">Rs.'+r.pricePerNight.toLocaleString('en-IN')+'/night</div></div>';});html+='</div>';}html+='<div class="hotel-footer"><div></div><a href="'+bookUrl+'" target="_blank" class="book-btn">Book on Google Hotels</a></div></div></div>';});
     html+='</div>';
+
     html+='<div class="section-card"><div class="section-title">🚗 Chauffeur Cars at '+dest+'</div>';
-    if(itin.cars&&itin.cars.length){itin.cars.forEach(function(c,i){const bookUrl='https://www.google.com/search?q='+encodeURIComponent(c.brand+' '+c.model+' chauffeur '+dest);html+='<div class="car-strip"><div class="car-strip-left">'+(i===0?'<div class="featured-bar">RECOMMENDED</div><br>':'')+'<div class="car-strip-model">'+c.model+'</div><div class="car-strip-brand">'+c.brand+'</div><div class="car-strip-tags"><span class="car-tag">'+c.category+'</span><span class="car-tag">'+c.seats+' Seats</span><span class="car-tag gold">👤 Chauffeur</span></div><div class="car-strip-desc">'+c.description+'</div></div><div class="car-strip-right"><div class="car-strip-price">Rs.'+c.pricePerDay.toLocaleString('en-IN')+'</div><div class="car-strip-label">per day</div><a href="'+bookUrl+'" target="_blank" class="book-btn" style="margin-top:8px;font-size:11px;padding:7px 14px">Book</a></div></div>';});}
+    if(itin.cars)itin.cars.forEach(function(c,i){const bookUrl='https://www.google.com/search?q='+encodeURIComponent(c.brand+' '+c.model+' chauffeur '+dest);html+='<div class="car-strip"><div class="car-strip-left">'+(i===0?'<div class="featured-bar">RECOMMENDED</div><br>':'')+'<div class="car-strip-model">'+c.model+'</div><div class="car-strip-brand">'+c.brand+'</div><div class="car-strip-tags"><span class="car-tag">'+c.category+'</span><span class="car-tag">'+c.seats+' Seats</span><span class="car-tag gold">👤 Chauffeur</span></div><div class="car-strip-desc">'+c.description+'</div></div><div class="car-strip-right"><div class="car-strip-price">Rs.'+c.pricePerDay.toLocaleString('en-IN')+'</div><div class="car-strip-label">per day</div><a href="'+bookUrl+'" target="_blank" class="book-btn" style="margin-top:8px;font-size:11px;padding:7px 14px">Book</a></div></div>';});
     html+='</div>';
+
     html+='<div class="section-card"><div class="section-title">🍽️ Restaurants at '+dest+'</div>';
-    if(itin.restaurants&&itin.restaurants.length){
-      itin.restaurants.forEach(function(r,i){
-        const stars='★'.repeat(Math.round(r.rating||4))+'☆'.repeat(5-Math.round(r.rating||4));
-        const mapsRestUrl='https://www.google.com/maps/search/'+encodeURIComponent(r.name+' '+dest);
-        html+='<div class="rest-card'+(i===0?' featured':'')+'">';
-        html+='<div class="rest-header"><div>'+(i===0?'<div class="featured-bar">TOP PICK</div><br>':'')+'<div class="rest-name">'+r.name+'</div><div class="rest-cuisine">'+r.cuisine+'</div><div class="rest-tags"><span class="rest-tag">'+r.ambience+'</span></div></div><div class="rest-right"><div class="rest-stars">'+stars+'</div><div class="rest-price">'+r.priceRange+'</div><div class="rest-price-label">avg per person</div></div></div>';
-        html+='<div class="rest-body"><div class="rest-desc">'+r.description+'</div><div class="menu-title">🍴 Signature Dishes</div><div class="menu-items">';
-        if(r.menuItems)r.menuItems.forEach(function(m){html+='<div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">'+m.name+'</div><div class="menu-item-desc">'+m.description+'</div>'+(m.tags&&m.tags.length?'<div class="menu-item-tags">'+m.tags.map(function(t){return'<span class="menu-item-tag">'+t+'</span>';}).join('')+'</div>':'')+'</div><div class="menu-item-price">Rs.'+m.price.toLocaleString('en-IN')+'</div></div>';});
-        html+='</div><div class="rest-footer"><div></div><a href="'+mapsRestUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div></div></div>';
-      });
-    }
+    if(itin.restaurants)itin.restaurants.forEach(function(r,i){const stars='★'.repeat(Math.round(r.rating||4))+'☆'.repeat(5-Math.round(r.rating||4));const mapsRestUrl='https://www.google.com/maps/search/'+encodeURIComponent(r.name+' '+dest);html+='<div class="rest-card'+(i===0?' featured':'')+'">';html+='<div class="rest-header"><div>'+(i===0?'<div class="featured-bar">TOP PICK</div><br>':'')+'<div class="rest-name">'+r.name+'</div><div class="rest-cuisine">'+r.cuisine+'</div><div class="rest-tags"><span class="rest-tag">'+r.ambience+'</span></div></div><div class="rest-right"><div class="rest-stars">'+stars+'</div><div class="rest-price">'+r.priceRange+'</div><div class="rest-price-label">avg per person</div></div></div>';html+='<div class="rest-body"><div class="rest-desc">'+r.description+'</div><div class="menu-title">🍴 Signature Dishes</div><div class="menu-items">';if(r.menuItems)r.menuItems.forEach(function(m){html+='<div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">'+m.name+'</div><div class="menu-item-desc">'+m.description+'</div>'+(m.tags&&m.tags.length?'<div class="menu-item-tags">'+m.tags.map(function(t){return'<span class="menu-item-tag">'+t+'</span>';}).join('')+'</div>':'')+'</div><div class="menu-item-price">Rs.'+m.price.toLocaleString('en-IN')+'</div></div>';});html+='</div><div class="rest-footer"><div></div><a href="'+mapsRestUrl+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div></div></div>';});
     html+='</div>';
+
+    html+='<div class="section-card"><div class="section-title">🏛️ Sightseeing at '+dest+'</div>';
+    if(itin.sightseeing)itin.sightseeing.forEach(function(p,i){const mapsUrl2='https://www.google.com/maps/search/'+encodeURIComponent(p.name+' '+dest);html+='<div class="place-card'+(i===0?' featured':'')+'">';html+='<div class="place-header"><div>'+(i===0?'<div class="featured-bar">MUST VISIT</div><br>':'')+'<div class="place-name">'+p.name+'</div><div class="place-category">'+p.category+'</div><div class="place-tags"><span class="place-tag">'+p.distanceFromCenter+'</span><span class="place-tag gold">⏰ '+p.bestTime+'</span></div></div><div class="place-right"><div style="color:#CBB38E;font-size:16px;font-weight:700">'+p.entryPrice+'</div><div style="color:#6B6560;font-size:11px">entry</div></div></div>';html+='<div class="place-body"><div class="place-desc">'+p.description+'</div><div class="place-info-grid"><div class="place-info-item"><div class="place-info-label">📍 Distance</div><div class="place-info-value">'+p.distanceFromCenter+'</div></div><div class="place-info-item"><div class="place-info-label">⏰ Best Time</div><div class="place-info-value">'+p.bestTime+'</div></div><div class="place-info-item"><div class="place-info-label">⏱ Duration</div><div class="place-info-value">'+p.duration+'</div></div><div class="place-info-item"><div class="place-info-label">👥 Crowd</div><div class="place-info-value">'+p.crowdLevel+'</div></div></div><div class="insider-tip"><div class="insider-label">💡 Insider Tip</div><div class="insider-text">'+p.insiderTip+'</div></div><div class="place-footer"><div class="crowd-bar"><span class="crowd-label">Crowd:</span><div class="crowd-dots">'+crowdDots(p.crowdLevel)+'</div></div><a href="'+mapsUrl2+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div></div></div>';});
+    html+='</div>';
+
+    html+='<div class="section-card"><div class="section-title">💎 Hidden Gems at '+dest+'</div>';
+    if(itin.hiddenGems)itin.hiddenGems.forEach(function(p,i){const mapsUrl3='https://www.google.com/maps/search/'+encodeURIComponent(p.name+' '+dest);html+='<div class="place-card gem">';html+='<div class="place-header"><div><div class="gem-bar">HIDDEN GEM</div><br><div class="place-name gem-name">'+p.name+'</div><div class="place-category">'+p.category+'</div><div class="place-tags"><span class="place-tag">'+p.distanceFromCenter+'</span><span class="place-tag purple">⏰ '+p.bestTime+'</span></div></div><div class="place-right"><div style="color:#B8A9D9;font-size:16px;font-weight:700">'+p.entryPrice+'</div><div style="color:#6B6560;font-size:11px">entry</div></div></div>';html+='<div class="place-body"><div class="place-desc">'+p.description+'</div><div class="place-info-grid"><div class="place-info-item"><div class="place-info-label">📍 Distance</div><div class="place-info-value">'+p.distanceFromCenter+'</div></div><div class="place-info-item"><div class="place-info-label">⏰ Best Time</div><div class="place-info-value">'+p.bestTime+'</div></div><div class="place-info-item"><div class="place-info-label">⏱ Duration</div><div class="place-info-value">'+p.duration+'</div></div><div class="place-info-item"><div class="place-info-label">👥 Crowd</div><div class="place-info-value">'+p.crowdLevel+'</div></div></div><div class="insider-tip gem-tip"><div class="insider-label gem-label">💎 Insider Secret</div><div class="insider-text">'+p.insiderTip+'</div></div><div class="place-footer"><div class="crowd-bar"><span class="crowd-label">Crowd:</span><div class="crowd-dots">'+crowdDots(p.crowdLevel)+'</div></div><a href="'+mapsUrl3+'" target="_blank" class="book-btn" style="font-size:11px;padding:7px 16px">View on Maps</a></div></div></div>';});
+    html+='</div>';
+
     html+='<div class="section-card"><div class="section-title">🎯 Activities</div>';
     itin.activities.forEach(function(a){html+='<div class="activity-card"><div class="activity-name">'+a.name+'</div><div class="activity-details">⏱ '+a.duration+' · Rs.'+a.priceINR.toLocaleString('en-IN')+' per person<br>'+a.description+'</div></div>';});
     html+='</div>';
