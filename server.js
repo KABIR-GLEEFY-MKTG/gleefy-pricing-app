@@ -111,24 +111,20 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 .summary-value { font-size: 18px; font-weight: 600; color: #CBB38E; }
 .day-card { background: #0E0E0E; border-radius: 8px; padding: 16px; margin-bottom: 10px; }
 .day-title { color: #CBB38E; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-.day-content { color: #A09890; font-size: 13px; line-height: 1.8; }
-.time-slot { display: flex; gap: 10px; margin-bottom: 6px; }
+.time-slot { display: flex; gap: 10px; margin-bottom: 8px; }
 .time-badge { background: #1A1A1A; border: 0.5px solid #2A2A2A; color: #CBB38E; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; height: fit-content; margin-top: 2px; letter-spacing: 0.06em; }
+.day-content { color: #A09890; font-size: 13px; line-height: 1.7; }
 .hotel-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 .hotel-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .hotel-details { color: #6B6560; font-size: 12px; }
 .hotel-price { color: #CBB38E; font-size: 16px; font-weight: 700; text-align: right; }
-.hotel-price-sub { color: #6B6560; font-size: 11px; }
 .car-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 .car-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .car-details { color: #6B6560; font-size: 12px; }
-.car-price { color: #CBB38E; font-size: 16px; font-weight: 700; text-align: right; }
 .activity-card { background: #0E0E0E; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
 .activity-name { color: #E7E1D7; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .activity-details { color: #6B6560; font-size: 12px; line-height: 1.6; }
 .map-frame { width: 100%; height: 300px; border-radius: 8px; border: 0.5px solid #2A2A2A; }
-.book-link { display: inline-block; background: #CBB38E; color: #000; padding: 8px 18px; border-radius: 6px; font-size: 11px; font-weight: 700; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 10px; }
-.book-link:hover { background: #d9c7a8; }
 .stars { color: #CBB38E; font-size: 12px; }
 </style>
 </head>
@@ -136,12 +132,10 @@ input[type="date"] { background: transparent; border: none; outline: none; color
 <h1>Gleefy</h1>
 <p class="tagline">Luxury Travel Planning</p>
 <div class="wrap">
-
   <div class="main-tabs">
     <button class="main-tab active" onclick="switchTab('flights')">✈ Flights</button>
     <button class="main-tab" onclick="switchTab('itinerary')">🗺 Plan a Trip</button>
   </div>
-
   <div id="flightsTab" class="tab-content active">
     <div class="toggle-row">
       <button class="toggle-btn active" id="domBtn" onclick="setMode('domestic')">Domestic</button>
@@ -198,7 +192,6 @@ input[type="date"] { background: transparent; border: none; outline: none; color
     </div>
     <div id="results"></div>
   </div>
-
   <div id="itineraryTab" class="tab-content">
     <div class="itin-form">
       <div class="itin-row">
@@ -263,21 +256,17 @@ input[type="date"] { background: transparent; border: none; outline: none; color
       </div>
       <div class="itin-field">
         <label class="itin-label">Special requests or interests</label>
-        <textarea class="itin-textarea" id="itinNotes" placeholder="e.g. vegetarian food, art museums, beach activities, wheelchair access..."></textarea>
+        <textarea class="itin-textarea" id="itinNotes" placeholder="e.g. vegetarian food, art museums, beach activities..."></textarea>
       </div>
       <button class="itin-btn" id="itinBtn" onclick="buildItinerary()">Build My Complete Trip</button>
     </div>
-
     <div id="itinLoading" style="display:none">
-      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:90%;margin-bottom:8px"></div></div>
-      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div></div>
-      <div class="skel"><div class="skel-line" style="height:20px;width:160px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:95%"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:200px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%;margin-bottom:8px"></div><div class="skel-line" style="height:14px;width:90%"></div></div>
+      <div class="skel"><div class="skel-line" style="height:20px;width:180px;margin-bottom:14px"></div><div class="skel-line" style="height:14px;width:100%"></div></div>
     </div>
-
     <div id="itinResult"></div>
   </div>
 </div>
-
 <script>
 const cities = [
   {city:"Delhi",code:"DEL",country:"India",type:"both"},
@@ -301,104 +290,65 @@ const cities = [
   {city:"Frankfurt",code:"FRA",country:"Germany",type:"international"},
   {city:"Toronto",code:"YYZ",country:"Canada",type:"international"},
 ];
-
-let mode = 'domestic', tripType = 'oneway', cabinClass = 'economy';
-let originCode = '', destCode = '', pax = 1;
-
-const today = new Date().toISOString().split('T')[0];
-document.getElementById('dateInput').min = today;
-document.getElementById('dateInput').value = today;
-document.getElementById('returnDateInput').min = today;
-document.getElementById('itinStart').min = today;
-document.getElementById('itinEnd').min = today;
-
-function switchTab(tab) {
-  document.getElementById('flightsTab').classList.toggle('active', tab==='flights');
-  document.getElementById('itineraryTab').classList.toggle('active', tab==='itinerary');
-  document.querySelectorAll('.main-tab').forEach(function(el, i) {
-    el.classList.toggle('active', (tab==='flights'&&i===0)||(tab==='itinerary'&&i===1));
-  });
+let mode='domestic',tripType='oneway',cabinClass='economy',originCode='',destCode='',pax=1;
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('dateInput').min=today;
+document.getElementById('dateInput').value=today;
+document.getElementById('returnDateInput').min=today;
+document.getElementById('itinStart').min=today;
+document.getElementById('itinEnd').min=today;
+function switchTab(tab){
+  document.getElementById('flightsTab').classList.toggle('active',tab==='flights');
+  document.getElementById('itineraryTab').classList.toggle('active',tab==='itinerary');
+  document.querySelectorAll('.main-tab').forEach(function(el,i){el.classList.toggle('active',(tab==='flights'&&i===0)||(tab==='itinerary'&&i===1));});
 }
-
-function setMode(m) {
-  mode = m; originCode = ''; destCode = '';
-  document.getElementById('originInput').value = '';
-  document.getElementById('destInput').value = '';
-  document.getElementById('domBtn').classList.toggle('active', m==='domestic');
-  document.getElementById('intlBtn').classList.toggle('active', m==='international');
-  document.getElementById('results').innerHTML = '';
-}
-
-function setTrip(t) {
-  tripType = t;
-  document.getElementById('oneWayBtn').classList.toggle('active', t==='oneway');
-  document.getElementById('roundBtn').classList.toggle('active', t==='round');
-  document.getElementById('returnCard').classList.toggle('show', t==='round');
-}
-
-function setCabin(c) {
-  cabinClass = c;
-  ['econ','premEcon','biz','first'].forEach(function(id) { document.getElementById(id+'Btn').classList.remove('active'); });
-  document.getElementById({economy:'econ',premium_economy:'premEcon',business:'biz',first:'first'}[c]+'Btn').classList.add('active');
-}
-
-function filterCities(field) {
-  const inputEl = document.getElementById(field==='origin'?'originInput':'destInput');
-  const ddEl = document.getElementById(field==='origin'?'originDD':'destDD');
-  const val = inputEl.value.toLowerCase();
-  const matches = cities.filter(c=>(c.type===mode||c.type==='both')&&(c.city.toLowerCase().includes(val)||c.code.toLowerCase().includes(val))).slice(0,6);
-  if (!matches.length) { ddEl.style.display='none'; return; }
-  ddEl.innerHTML = matches.map(c=>'<div class="dd-item" onmousedown="selectCity(' + "'"+field+"'," + "'"+c.code+"'," + "'"+c.city+"'" + ')"><span><span class="dd-city">'+c.city+'</span><span class="dd-country">'+c.country+'</span></span><span class="dd-code">'+c.code+'</span></div>').join('');
+function setMode(m){mode=m;originCode='';destCode='';document.getElementById('originInput').value='';document.getElementById('destInput').value='';document.getElementById('domBtn').classList.toggle('active',m==='domestic');document.getElementById('intlBtn').classList.toggle('active',m==='international');document.getElementById('results').innerHTML='';}
+function setTrip(t){tripType=t;document.getElementById('oneWayBtn').classList.toggle('active',t==='oneway');document.getElementById('roundBtn').classList.toggle('active',t==='round');document.getElementById('returnCard').classList.toggle('show',t==='round');}
+function setCabin(c){cabinClass=c;['econ','premEcon','biz','first'].forEach(function(id){document.getElementById(id+'Btn').classList.remove('active');});document.getElementById({economy:'econ',premium_economy:'premEcon',business:'biz',first:'first'}[c]+'Btn').classList.add('active');}
+function filterCities(field){
+  const inputEl=document.getElementById(field==='origin'?'originInput':'destInput');
+  const ddEl=document.getElementById(field==='origin'?'originDD':'destDD');
+  const val=inputEl.value.toLowerCase();
+  const matches=cities.filter(c=>(c.type===mode||c.type==='both')&&(c.city.toLowerCase().includes(val)||c.code.toLowerCase().includes(val))).slice(0,6);
+  if(!matches.length){ddEl.style.display='none';return;}
+  ddEl.innerHTML=matches.map(c=>'<div class="dd-item" onmousedown="selectCity(' + "'"+field+"'," + "'"+c.code+"'," + "'"+c.city+"'" + ')"><span><span class="dd-city">'+c.city+'</span><span class="dd-country">'+c.country+'</span></span><span class="dd-code">'+c.code+'</span></div>').join('');
   ddEl.style.display='block';
 }
-
-function selectCity(field, code, city) {
-  if (field==='origin') { originCode=code; document.getElementById('originInput').value=city+' ('+code+')'; hideDD('origin'); }
-  else { destCode=code; document.getElementById('destInput').value=city+' ('+code+')'; hideDD('dest'); }
-}
-
-function hideDD(field) { document.getElementById(field==='origin'?'originDD':'destDD').style.display='none'; }
-
-function swapCities() {
-  const oVal=document.getElementById('originInput').value, dVal=document.getElementById('destInput').value;
-  document.getElementById('originInput').value=dVal; document.getElementById('destInput').value=oVal;
-  const tmp=originCode; originCode=destCode; destCode=tmp;
-}
-
-function changePax(d) { pax=Math.max(1,Math.min(9,pax+d)); document.getElementById('paxNum').textContent=pax; }
-function showErr(msg) { const b=document.getElementById('errBox'); b.textContent=msg; b.style.display='block'; }
-function hideErr() { document.getElementById('errBox').style.display='none'; }
-
-async function doSearch() {
+function selectCity(field,code,city){if(field==='origin'){originCode=code;document.getElementById('originInput').value=city+' ('+code+')';hideDD('origin');}else{destCode=code;document.getElementById('destInput').value=city+' ('+code+')';hideDD('dest');}}
+function hideDD(field){document.getElementById(field==='origin'?'originDD':'destDD').style.display='none';}
+function swapCities(){const oVal=document.getElementById('originInput').value,dVal=document.getElementById('destInput').value;document.getElementById('originInput').value=dVal;document.getElementById('destInput').value=oVal;const tmp=originCode;originCode=destCode;destCode=tmp;}
+function changePax(d){pax=Math.max(1,Math.min(9,pax+d));document.getElementById('paxNum').textContent=pax;}
+function showErr(msg){const b=document.getElementById('errBox');b.textContent=msg;b.style.display='block';}
+function hideErr(){document.getElementById('errBox').style.display='none';}
+async function doSearch(){
   hideErr();
-  if (!originCode) { showErr('Please select a departure city.'); return; }
-  if (!destCode) { showErr('Please select a destination city.'); return; }
-  if (originCode===destCode) { showErr('Origin and destination cannot be the same.'); return; }
+  if(!originCode){showErr('Please select a departure city.');return;}
+  if(!destCode){showErr('Please select a destination city.');return;}
+  if(originCode===destCode){showErr('Origin and destination cannot be the same.');return;}
   const date=document.getElementById('dateInput').value;
-  if (!date) { showErr('Please select a travel date.'); return; }
+  if(!date){showErr('Please select a travel date.');return;}
   const returnDate=document.getElementById('returnDateInput').value;
-  if (tripType==='round'&&!returnDate) { showErr('Please select a return date.'); return; }
+  if(tripType==='round'&&!returnDate){showErr('Please select a return date.');return;}
   const btn=document.getElementById('searchBtn');
-  btn.disabled=true; btn.textContent='Searching...';
+  btn.disabled=true;btn.textContent='Searching...';
   document.getElementById('loading').style.display='block';
   document.getElementById('results').innerHTML='';
   const oCity=cities.find(c=>c.code===originCode);
   const dCity=cities.find(c=>c.code===destCode);
-  try {
+  try{
     const resp=await fetch('/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({origin:originCode,destination:destCode,date,returnDate,pax,tripType,cabinClass})});
     const data=await resp.json();
-    if (!data.flights||!data.flights.length) { showErr('No flights found. Please try a different route or date.'); return; }
-    renderResults(data.flights,oCity,dCity,date,returnDate);
-  } catch(e) { showErr('Could not fetch flights. Please try again.'); }
-  finally { btn.disabled=false; btn.textContent='Search Flights'; document.getElementById('loading').style.display='none'; }
+    if(!data.flights||!data.flights.length){showErr('No flights found. Please try a different route or date.');return;}
+    renderResults(data.flights,oCity,dCity,date);
+  }catch(e){showErr('Could not fetch flights. Please try again.');}
+  finally{btn.disabled=false;btn.textContent='Search Flights';document.getElementById('loading').style.display='none';}
 }
-
-function renderResults(flights, oCity, dCity, date) {
+function renderResults(flights,oCity,dCity,date){
   const dateStr=new Date(date+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
   const cabinLabel={economy:'Economy',premium_economy:'Premium Economy',business:'Business',first:'First Class'}[cabinClass];
   const tripLabel=tripType==='round'?'Round Trip':'One Way';
   let html='<div class="results-header"><div><span class="route-label">'+oCity.city+' to '+dCity.city+'</span><span style="font-size:13px;color:#6B6560;margin-left:10px">'+dateStr+' · '+pax+' pax · '+cabinLabel+' · '+tripLabel+'</span></div><span style="font-size:13px;color:#6B6560">'+flights.length+' options</span></div>';
-  flights.forEach(function(f,i) {
+  flights.forEach(function(f,i){
     const total=(f.price+f.taxes)*pax;
     const bookingUrl='https://www.google.com/flights?q=flights+from+'+originCode+'+to+'+destCode+'+on+'+date;
     html+='<div class="flight-card'+(i===0?' best':'')+'" id="fc'+i+'"><div class="flight-main" onclick="toggleCard('+i+')">'+(i===0?'<div class="best-badge">BEST</div>':'')+'<div class="flight-info"><div class="airline-row"><span class="airline-name">'+f.airline+'</span><span class="flight-no">'+f.flightNo+'</span></div><div class="time-row"><span class="time">'+f.departure+'</span><div class="connector"><div class="line"></div><span class="dur">'+f.duration+'</span><div class="line"></div></div><span class="time">'+f.arrival+'</span></div><div class="stops-row"><span class="stops-txt">'+f.stops+'</span>'+(f.refundable?'<span class="ref-badge">Refundable</span>':'')+'</div></div><div class="price-col"><div class="price-num">Rs.'+f.price.toLocaleString('en-IN')+'</div><div class="price-sub">per person</div></div><div class="chevron" id="chev'+i+'">▾</div></div><div class="flight-detail" id="fd'+i+'" style="display:none"><div class="detail-grid"><div><div class="detail-lbl">Aircraft</div><div class="detail-val">'+f.aircraft+'</div></div><div><div class="detail-lbl">Class</div><div class="detail-val">'+f.cabinClass+'</div></div><div><div class="detail-lbl">Baggage</div><div class="detail-val">'+f.baggage+'</div></div><div><div class="detail-lbl">Meal</div><div class="detail-val">'+f.meal+'</div></div><div><div class="detail-lbl">Seat Pitch</div><div class="detail-val">'+f.seatPitch+'</div></div><div><div class="detail-lbl">Wi-Fi</div><div class="detail-val">'+f.wifi+'</div></div></div><div class="detail-footer"><div><span style="font-size:13px;color:#6B6560">Total: </span><span class="total-amt">Rs.'+total.toLocaleString('en-IN')+'</span></div><a href="'+bookingUrl+'" target="_blank" class="book-btn">Book Now</a></div></div></div>';
@@ -406,15 +356,8 @@ function renderResults(flights, oCity, dCity, date) {
   html+='<p class="disclaimer">Prices are indicative estimates. Book Now links to Google Flights.</p>';
   document.getElementById('results').innerHTML=html;
 }
-
-function toggleCard(i) {
-  const fd=document.getElementById('fd'+i), ch=document.getElementById('chev'+i);
-  const open=fd.style.display==='block';
-  fd.style.display=open?'none':'block';
-  ch.style.transform=open?'none':'rotate(180deg)';
-}
-
-async function buildItinerary() {
+function toggleCard(i){const fd=document.getElementById('fd'+i),ch=document.getElementById('chev'+i);const open=fd.style.display==='block';fd.style.display=open?'none':'block';ch.style.transform=open?'none':'rotate(180deg)';}
+async function buildItinerary(){
   const from=document.getElementById('itinFrom').value.trim();
   const dest=document.getElementById('itinDest').value.trim();
   const start=document.getElementById('itinStart').value;
@@ -424,18 +367,18 @@ async function buildItinerary() {
   const style=document.getElementById('itinStyle').value;
   const hotel=document.getElementById('itinHotel').value;
   const notes=document.getElementById('itinNotes').value.trim();
-  if (!from||!dest||!start||!end) { alert('Please fill in all required fields.'); return; }
+  if(!from||!dest||!start||!end){alert('Please fill in all required fields.');return;}
   const btn=document.getElementById('itinBtn');
-  btn.disabled=true; btn.textContent='Building Your Trip...';
+  btn.disabled=true;btn.textContent='Building Your Trip...';
   document.getElementById('itinLoading').style.display='block';
   document.getElementById('itinResult').innerHTML='';
-  try {
+  try{
     const resp=await fetch('/itinerary',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({from,dest,start,end,travellers,budget,style,hotel,notes})});
     const data=await resp.json();
-    if (data.error) { alert('Could not build itinerary. Please try again.'); return; }
+    if(data.error){alert('Could not build itinerary. Please try again.');return;}
     document.getElementById('itinResult').innerHTML=data.html;
-  } catch(e) { alert('Could not build itinerary. Please try again.'); }
-  finally { btn.disabled=false; btn.textContent='Build My Complete Trip'; document.getElementById('itinLoading').style.display='none'; }
+  }catch(e){alert('Could not build itinerary. Please try again.');}
+  finally{btn.disabled=false;btn.textContent='Build My Complete Trip';document.getElementById('itinLoading').style.display='none';}
 }
 </script>
 </body>
@@ -444,155 +387,98 @@ async function buildItinerary() {
 
 app.post("/search", async (req, res) => {
   const { origin, destination, date, returnDate, pax, tripType, cabinClass } = req.body;
-  const cabinMap = { economy:1, premium_economy:2, business:3, first:4 };
-  const cabinLabel = { 1:"Economy", 2:"Premium Economy", 3:"Business", 4:"First Class" };
-  const baggageMap = { 1:"15kg check-in + 7kg cabin", 2:"20kg check-in + 10kg cabin", 3:"32kg check-in + 15kg cabin", 4:"40kg check-in + 18kg cabin" };
-  const seatMap = { 1:"29 inches", 2:"34 inches", 3:"60 inches", 4:"78 inches" };
-  const cabinNum = cabinMap[cabinClass] || 1;
-  const tripNum = tripType === 'round' ? 1 : 2;
-  try {
-    let url = "https://serpapi.com/search.json?engine=google_flights&departure_id="+origin+"&arrival_id="+destination+"&outbound_date="+date+"&adults="+pax+"&currency=INR&hl=en&gl=in&type="+tripNum+"&travel_class="+cabinNum+"&api_key="+process.env.SERPAPI_KEY;
-    if (tripType==='round'&&returnDate) url+="&return_date="+returnDate;
-    const response = await fetch(url);
-    const data = await response.json();
-    const rawFlights = data.best_flights || data.other_flights || [];
-    if (!rawFlights.length) return res.status(500).json({ error:"No flights found" });
-    const flights = rawFlights.slice(0,4).map((item,i) => {
-      const leg = item.flights&&item.flights[0];
-      const price = item.price||0;
-      return {
-        airline: leg?leg.airline||"Unknown":"Unknown",
-        flightNo: leg?leg.flight_number||"N/A":"N/A",
-        departure: leg&&leg.departure_airport?leg.departure_airport.time.split(" ")[1]:"00:00",
-        arrival: leg&&leg.arrival_airport?leg.arrival_airport.time.split(" ")[1]:"00:00",
-        duration: Math.floor((item.total_duration||0)/60)+"h "+((item.total_duration||0)%60)+"m",
-        stops: item.flights&&item.flights.length===1?"Non-stop":(item.flights?item.flights.length-1:0)+" stop",
-        price, taxes: Math.round(price*0.2),
-        aircraft: leg?leg.airplane||"Standard Aircraft":"Standard Aircraft",
-        cabinClass: cabinLabel[cabinNum], baggage: baggageMap[cabinNum],
-        meal: cabinNum>=2?"Complimentary":i===0?"Complimentary":"Buy on board",
-        seatPitch: seatMap[cabinNum],
-        wifi: cabinNum>=2?"Available":i<2?"Available":"Not available",
-        refundable: cabinNum>=3
-      };
+  const cabinMap={economy:1,premium_economy:2,business:3,first:4};
+  const cabinLabel={1:"Economy",2:"Premium Economy",3:"Business",4:"First Class"};
+  const baggageMap={1:"15kg check-in + 7kg cabin",2:"20kg check-in + 10kg cabin",3:"32kg check-in + 15kg cabin",4:"40kg check-in + 18kg cabin"};
+  const seatMap={1:"29 inches",2:"34 inches",3:"60 inches",4:"78 inches"};
+  const cabinNum=cabinMap[cabinClass]||1;
+  const tripNum=tripType==='round'?1:2;
+  try{
+    let url="https://serpapi.com/search.json?engine=google_flights&departure_id="+origin+"&arrival_id="+destination+"&outbound_date="+date+"&adults="+pax+"&currency=INR&hl=en&gl=in&type="+tripNum+"&travel_class="+cabinNum+"&api_key="+process.env.SERPAPI_KEY;
+    if(tripType==='round'&&returnDate) url+="&return_date="+returnDate;
+    const response=await fetch(url);
+    const data=await response.json();
+    const rawFlights=data.best_flights||data.other_flights||[];
+    if(!rawFlights.length) return res.status(500).json({error:"No flights found"});
+    const flights=rawFlights.slice(0,4).map((item,i)=>{
+      const leg=item.flights&&item.flights[0];
+      const price=item.price||0;
+      return{airline:leg?leg.airline||"Unknown":"Unknown",flightNo:leg?leg.flight_number||"N/A":"N/A",departure:leg&&leg.departure_airport?leg.departure_airport.time.split(" ")[1]:"00:00",arrival:leg&&leg.arrival_airport?leg.arrival_airport.time.split(" ")[1]:"00:00",duration:Math.floor((item.total_duration||0)/60)+"h "+((item.total_duration||0)%60)+"m",stops:item.flights&&item.flights.length===1?"Non-stop":(item.flights?item.flights.length-1:0)+" stop",price,taxes:Math.round(price*0.2),aircraft:leg?leg.airplane||"Standard Aircraft":"Standard Aircraft",cabinClass:cabinLabel[cabinNum],baggage:baggageMap[cabinNum],meal:cabinNum>=2?"Complimentary":i===0?"Complimentary":"Buy on board",seatPitch:seatMap[cabinNum],wifi:cabinNum>=2?"Available":i<2?"Available":"Not available",refundable:cabinNum>=3};
     });
-    res.json({ flights });
-  } catch(err) { console.error(err); res.status(500).json({ error:"Failed" }); }
+    res.json({flights});
+  }catch(err){console.error(err);res.status(500).json({error:"Failed"});}
 });
 
 app.post("/itinerary", async (req, res) => {
   const { from, dest, start, end, travellers, budget, style, hotel, notes } = req.body;
-  const days = Math.round((new Date(end)-new Date(start))/(1000*60*60*24))+1;
+  const days = Math.round((new Date(end) - new Date(start)) / (1000*60*60*24)) + 1;
 
-  const prompt = `You are a luxury travel planner for Gleefy. Create a detailed ${days}-day trip plan.
+  const prompt = `You are a luxury travel planner. Create a ${days}-day trip plan for ${travellers} travellers going from ${from} to ${dest}, ${start} to ${end}, ${budget} budget, ${style} style, ${hotel} accommodation. Special requests: ${notes||'None'}.
 
-Trip: ${from} to ${dest}, ${start} to ${end}, ${travellers} travellers, ${budget} budget, ${style} style, ${hotel} accommodation.
-Special requests: ${notes||'None'}
+You MUST respond with ONLY a valid JSON object. No text before or after. No markdown. No explanation. Just the raw JSON.
 
-Return ONLY a valid JSON object with NO markdown, NO code fences. Use this exact structure:
-{
-  "summary": "2-3 sentence exciting trip summary",
-  "totalBudgetINR": "estimated total budget range in INR e.g. Rs.1,50,000 - Rs.2,00,000",
-  "days": [
-    {
-      "day": 1,
-      "date": "formatted date",
-      "title": "catchy day title",
-      "morning": "specific morning activity with real place name",
-      "afternoon": "specific afternoon activity with real place name",
-      "evening": "specific evening activity with real place name",
-      "meals": "breakfast, lunch, dinner restaurant recommendations"
-    }
-  ],
-  "hotels": [
-    { "name": "specific real hotel name", "stars": 4, "pricePerNightINR": 12000, "highlight": "one key feature" },
-    { "name": "another real hotel name", "stars": 5, "pricePerNightINR": 25000, "highlight": "one key feature" }
-  ],
-  "cars": [
-    { "type": "car type e.g. Sedan", "company": "rental company name", "pricePerDayINR": 3500, "features": "AC, GPS, unlimited km" },
-    { "type": "SUV", "company": "another company", "pricePerDayINR": 5500, "features": "7 seater, AC, driver included" }
-  ],
-  "activities": [
-    { "name": "specific activity name", "duration": "2-3 hours", "priceINR": 500, "description": "brief description" },
-    { "name": "another activity", "duration": "half day", "priceINR": 1200, "description": "brief description" },
-    { "name": "third activity", "duration": "full day", "priceINR": 2000, "description": "brief description" }
-  ],
-  "tips": ["tip 1", "tip 2", "tip 3"]
-}`;
+Use this exact structure:
+{"summary":"2-3 sentence trip summary","totalBudgetINR":"estimated budget range e.g. Rs.1,50,000 - Rs.2,00,000","days":[{"day":1,"title":"day title","morning":"morning activity with real place name","afternoon":"afternoon activity with real place name","evening":"evening activity with real place name","meals":"restaurant recommendations"}],"hotels":[{"name":"real hotel name","stars":4,"pricePerNightINR":12000,"highlight":"key feature"},{"name":"another real hotel","stars":5,"pricePerNightINR":25000,"highlight":"key feature"}],"cars":[{"type":"Sedan","company":"rental company","pricePerDayINR":3500,"features":"AC, GPS"},{"type":"SUV","company":"company","pricePerDayINR":5500,"features":"7 seater, AC"}],"activities":[{"name":"activity name","duration":"2-3 hours","priceINR":500,"description":"brief description"},{"name":"activity","duration":"half day","priceINR":1200,"description":"description"},{"name":"activity","duration":"full day","priceINR":2000,"description":"description"}],"tips":["tip 1","tip 2","tip 3"]}`;
 
   try {
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+process.env.GEMINI_API_KEY,
-      { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.7,maxOutputTokens:2048} }) }
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + process.env.GEMINI_API_KEY,
+      { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.5,maxOutputTokens:2048}}) }
     );
     const data = await response.json();
-    let text = data.candidates?.[0]?.content?.parts?.[0]?.text||"";
+    console.log("Gemini response:", JSON.stringify(data).substring(0,300));
+    let text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
     text = text.replace(/```json|```/g,"").trim();
-    const itin = JSON.parse(text);
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error("No JSON in response");
+    const itin = JSON.parse(jsonMatch[0]);
 
-    const flightsUrl = "https://www.google.com/flights?q=flights+from+"+encodeURIComponent(from)+"+to+"+encodeURIComponent(dest);
-    const hotelsUrl = "https://www.google.com/travel/hotels/"+encodeURIComponent(dest);
-    const carsUrl = "https://www.google.com/search?q=car+rental+in+"+encodeURIComponent(dest);
-    const mapsUrl = "https://www.google.com/maps/search/"+encodeURIComponent(dest);
+    const flightsUrl="https://www.google.com/flights?q=flights+from+"+encodeURIComponent(from)+"+to+"+encodeURIComponent(dest);
+    const hotelsUrl="https://www.google.com/travel/hotels/"+encodeURIComponent(dest);
+    const carsUrl="https://www.google.com/search?q=car+rental+in+"+encodeURIComponent(dest);
+    const mapsUrl="https://www.google.com/maps/search/"+encodeURIComponent(dest);
 
-    let html = '<div>';
-
-    html += '<div class="section-card"><div style="font-family:Bodoni Moda,serif;color:#CBB38E;font-size:26px;margin-bottom:8px">'+dest+' — '+days+' Day Trip</div>';
-    html += '<div class="trip-summary">'+itin.summary+'</div>';
-    html += '<div class="summary-grid">';
-    html += '<div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">'+days+' Days</div></div>';
-    html += '<div class="summary-item"><div class="summary-label">Travellers</div><div class="summary-value">'+travellers+'</div></div>';
-    html += '<div class="summary-item"><div class="summary-label">Est. Budget</div><div class="summary-value" style="font-size:13px">'+itin.totalBudgetINR+'</div></div>';
-    html += '</div></div>';
-
-    html += '<div class="section-card"><div class="section-title">✈️ Flights</div>';
-    html += '<div style="color:#A09890;font-size:13px;margin-bottom:12px">Search and book flights for your trip dates</div>';
-    html += '<a href="'+flightsUrl+'" target="_blank" class="book-btn" style="margin-right:10px">Search Flights on Google</a></div>';
-
-    html += '<div class="section-card"><div class="section-title">🗓️ Day by Day Itinerary</div>';
-    itin.days.forEach(function(d) {
-      html += '<div class="day-card"><div class="day-title">Day '+d.day+' — '+d.title+'</div>';
-      html += '<div class="time-slot"><span class="time-badge">Morning</span><span class="day-content">'+d.morning+'</span></div>';
-      html += '<div class="time-slot"><span class="time-badge">Afternoon</span><span class="day-content">'+d.afternoon+'</span></div>';
-      html += '<div class="time-slot"><span class="time-badge">Evening</span><span class="day-content">'+d.evening+'</span></div>';
-      html += '<div style="margin-top:8px;color:#6B6560;font-size:12px">🍽️ '+d.meals+'</div>';
-      html += '</div>';
+    let html='<div>';
+    html+='<div class="section-card"><div style="font-family:Bodoni Moda,serif;color:#CBB38E;font-size:26px;margin-bottom:8px">'+dest+' — '+days+' Day Trip</div>';
+    html+='<div class="trip-summary">'+itin.summary+'</div>';
+    html+='<div class="summary-grid"><div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">'+days+' Days</div></div><div class="summary-item"><div class="summary-label">Travellers</div><div class="summary-value">'+travellers+'</div></div><div class="summary-item"><div class="summary-label">Est. Budget</div><div class="summary-value" style="font-size:13px">'+itin.totalBudgetINR+'</div></div></div></div>';
+    html+='<div class="section-card"><div class="section-title">✈️ Flights</div><div style="color:#A09890;font-size:13px;margin-bottom:12px">Search and book flights for your trip dates</div><a href="'+flightsUrl+'" target="_blank" class="book-btn">Search Flights on Google</a></div>';
+    html+='<div class="section-card"><div class="section-title">🗓️ Day by Day Itinerary</div>';
+    itin.days.forEach(function(d){
+      html+='<div class="day-card"><div class="day-title">Day '+d.day+' — '+d.title+'</div>';
+      html+='<div class="time-slot"><span class="time-badge">Morning</span><span class="day-content">'+d.morning+'</span></div>';
+      html+='<div class="time-slot"><span class="time-badge">Afternoon</span><span class="day-content">'+d.afternoon+'</span></div>';
+      html+='<div class="time-slot"><span class="time-badge">Evening</span><span class="day-content">'+d.evening+'</span></div>';
+      html+='<div style="margin-top:8px;color:#6B6560;font-size:12px">🍽️ '+d.meals+'</div></div>';
     });
-    html += '</div>';
-
-    html += '<div class="section-card"><div class="section-title">🏨 Hotels</div>';
-    itin.hotels.forEach(function(h) {
-      const stars = '★'.repeat(h.stars)+'☆'.repeat(5-h.stars);
-      html += '<div class="hotel-card"><div><div class="hotel-name">'+h.name+'</div><div class="stars">'+stars+'</div><div class="hotel-details" style="margin-top:4px">'+h.highlight+'</div></div><div><div class="hotel-price">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div class="hotel-price-sub">per night</div><a href="'+hotelsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
+    html+='</div>';
+    html+='<div class="section-card"><div class="section-title">🏨 Hotels</div>';
+    itin.hotels.forEach(function(h){
+      const stars='★'.repeat(h.stars)+'☆'.repeat(5-h.stars);
+      html+='<div class="hotel-card"><div><div class="hotel-name">'+h.name+'</div><div class="stars">'+stars+'</div><div class="hotel-details" style="margin-top:4px">'+h.highlight+'</div></div><div><div class="hotel-price">Rs.'+h.pricePerNightINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per night</div><a href="'+hotelsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
     });
-    html += '</div>';
-
-    html += '<div class="section-card"><div class="section-title">🚗 Car Rentals</div>';
-    itin.cars.forEach(function(c) {
-      html += '<div class="car-card"><div><div class="car-name">'+c.type+'</div><div class="car-details">'+c.company+' · '+c.features+'</div></div><div><div class="car-price">Rs.'+c.pricePerDayINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per day</div><a href="'+carsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
+    html+='</div>';
+    html+='<div class="section-card"><div class="section-title">🚗 Car Rentals</div>';
+    itin.cars.forEach(function(c){
+      html+='<div class="car-card"><div><div class="car-name">'+c.type+'</div><div class="car-details">'+c.company+' · '+c.features+'</div></div><div><div style="color:#CBB38E;font-size:16px;font-weight:700">Rs.'+c.pricePerDayINR.toLocaleString('en-IN')+'</div><div style="color:#6B6560;font-size:11px">per day</div><a href="'+carsUrl+'" target="_blank" class="book-btn" style="margin-top:8px;display:inline-block;font-size:10px;padding:6px 12px">Book</a></div></div>';
     });
-    html += '</div>';
-
-    html += '<div class="section-card"><div class="section-title">🎯 Activities & Experiences</div>';
-    itin.activities.forEach(function(a) {
-      html += '<div class="activity-card"><div class="activity-name">'+a.name+'</div><div class="activity-details">⏱ '+a.duration+' · Rs.'+a.priceINR.toLocaleString('en-IN')+' per person<br>'+a.description+'</div></div>';
+    html+='</div>';
+    html+='<div class="section-card"><div class="section-title">🎯 Activities</div>';
+    itin.activities.forEach(function(a){
+      html+='<div class="activity-card"><div class="activity-name">'+a.name+'</div><div class="activity-details">⏱ '+a.duration+' · Rs.'+a.priceINR.toLocaleString('en-IN')+' per person<br>'+a.description+'</div></div>';
     });
-    html += '</div>';
+    html+='</div>';
+    html+='<div class="section-card"><div class="section-title">🗺️ Explore the Map</div>';
+    html+='<iframe class="map-frame" src="https://maps.google.com/maps?q='+encodeURIComponent(dest)+'&output=embed" frameborder="0" allowfullscreen></iframe>';
+    html+='<a href="'+mapsUrl+'" target="_blank" class="book-btn" style="margin-top:12px;display:inline-block">Open in Google Maps</a></div>';
+    html+='<div class="section-card"><div class="section-title">💡 Travel Tips</div><ul style="padding-left:16px">';
+    itin.tips.forEach(function(t){html+='<li style="color:#A09890;font-size:13px;line-height:2">'+t+'</li>';});
+    html+='</ul></div></div>';
 
-    html += '<div class="section-card"><div class="section-title">🗺️ Explore the Map</div>';
-    html += '<iframe class="map-frame" src="https://maps.google.com/maps?q='+encodeURIComponent(dest)+'&output=embed" frameborder="0" allowfullscreen></iframe>';
-    html += '<a href="'+mapsUrl+'" target="_blank" class="book-btn" style="margin-top:12px;display:inline-block">Open in Google Maps</a></div>';
-
-    html += '<div class="section-card"><div class="section-title">💡 Travel Tips</div><ul style="padding-left:16px">';
-    itin.tips.forEach(function(t) { html += '<li style="color:#A09890;font-size:13px;line-height:2">'+t+'</li>'; });
-    html += '</ul></div>';
-
-    html += '</div>';
-
-    res.json({ html });
+    res.json({html});
   } catch(err) {
-    console.error("Gemini error:", err);
-    res.status(500).json({ error:"Failed to build itinerary" });
+    console.error("Itinerary error:", err.message);
+    res.status(500).json({error:"Failed to build itinerary"});
   }
 });
 
